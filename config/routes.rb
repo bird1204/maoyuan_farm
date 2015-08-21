@@ -54,6 +54,12 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  resources :about, only: [:index]
-  resources :service, only: [:index]
+  resources :abouts, only: [:index]
+  resources :services, only: [:index]
+  resources :catalogs, only: [:index]
+  resources :news, only: [:index, :show]
+  resources :contacts, only: [:index]
+  resources :steps, only: [:index]
+  resources :direct_sellings, only: [:show]
+  resources :products, only: [:index, :show]
 end
