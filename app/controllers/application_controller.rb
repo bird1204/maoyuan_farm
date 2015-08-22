@@ -3,10 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :active_page
+  before_action :breadcomb
   def active_page
     path = Rails.application.routes.recognize_path(request.env['PATH_INFO'])
     @controller = path[:controller]
-    # action = path[:action]
-    p @controller
+    @action = path[:action]
+  end
+
+  def breadcomb
+    @path = "#{@controller} > #{@action}"
   end
 end
