@@ -21,14 +21,11 @@
 			</div>
 		</div>
 	</div>
-<!--頁碼-->
-<%= will_paginate @news%>
-<div class="pagination">
-	<a href="#" class="page gradient">first</a>
-	<a href="#" class="page gradient">2</a>
-	<a href="#" class="page gradient">3</a><span class="page active">4</span>
-	<a href="#" class="page gradient">5</a>
-	<a href="#" class="page gradient">6</a>
-	<a href="#" class="page gradient">last</a>
-</div>
+	<!--頁碼-->
+	<div class="pagination">
+		<%= link_to '第一頁', :action => 'index', :page => 1 %>
+		<%= will_paginate @news ,:container => false %>
+		<%= link_to '最後一頁', :action => 'index', :page => @news.total_pages %>
+	</div>
+
 </div>
