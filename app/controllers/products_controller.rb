@@ -9,6 +9,12 @@ class ProductsController < ApplicationController
       @products.clear
       @products << Product.where(category_id: params[:type])
     end
+
+    if params[:query_string]
+      @products.clear
+      @products << Product.where('name like ?', "%#{params[:query_string]}%")
+    end
+
     @products = @products.paginate(page: params[:page], per_page: 2)
   end
   

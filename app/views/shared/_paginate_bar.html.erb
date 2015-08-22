@@ -1,0 +1,5 @@
+  <div class="pagination">
+    <%= link_to '第一頁', action: 'index', page: 1 %>
+    <%= will_paginate objects ,container: false %>
+    <%= link_to '最後一頁', action: 'index', page:  objects.total_pages %>
+  </div>

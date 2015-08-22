@@ -8,10 +8,10 @@
 			<div id="content" class="10u skel-cell-important">
 				<%@products.each_with_index do |products, index|%>
 				<section>
-					<%= render partial: 'shared/breadcomb', locals: {path: @path} if index == 0%>
+					<%=breadcomb_bar index %>
 					<header class="major">
-						<%="<h2>線上購物</h2>".html_safe  if index == 0%>
-						<span class="byline" style="border-top:none;margin-top: 0;"><%=products.first.category.name%></span>
+						<%=header_title index %>
+						<%=header_message products.first, 'byline', 'border-top:none;margin-top: 0;', index%>
 					</header>
 					<div class="row">
 						<%products.each do |product|%>
@@ -36,9 +36,5 @@
 	</section>
 </div>
 <!--頁碼-->
-	<div class="pagination">
-		<%= link_to '第一頁', :action => 'index', :page => 1 %>
-		<%= will_paginate @products ,:container => false %>
-		<%= link_to '最後一頁', :action => 'index', :page => @products.total_pages %>
-	</div>
+	<%=nav_bar @products%>
 </div>

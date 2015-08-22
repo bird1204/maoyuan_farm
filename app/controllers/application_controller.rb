@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def breadcomb
-    @path = "#{@controller} > #{@action}"
+    @path = "#{I18n.t "website.#{@controller}.head"} > #{I18n.t "website.#{@controller}.#{@action}"}"
   end
 end

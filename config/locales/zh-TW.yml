@@ -1,0 +1,29 @@
+zh-TW:
+  website:
+    products:
+      head: 線上購物
+      index: 主頁
+      show: 商品內頁
+    abouts: 
+      head: 關於茂發
+      index: 主頁
+    services: 
+      head: 線上服務
+      index: 主頁
+    catalogs: 
+      head: 線上型錄
+      index: 主頁
+    news: 
+      head: 最新消息
+      index: 主頁
+      show: 新聞內頁
+    contacts:
+      head: 聯絡我們
+      index: 主頁
+    steps:
+      head: 購物流程
+      index: 主頁
+    direct_sellings:
+      head: 農友直銷
+      show: 農友資訊
+  admin:
