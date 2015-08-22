@@ -3,50 +3,32 @@
 	<div class="container">
 		<div class="row">
 			<!-- Sidebar -->
-			<div id="sidebar" class="2u">
-				<section>
-					<header class="major">
-						<h2>類別</h2>
-					</header>
-					<ul class="default">
-						<li><a href="#">新品上市</a> (3)</li>
-						<li><a href="#">特價資訊</a> (10)</li>
-						<li><a href="#">營業訊息</a> (6)</li>
-						<li><a href="#">站務公告</a> (5)</li>
-					</ul>
-				</section>
-			</div>
+			<%= render partial: 'news/left_section', locals: {categories: @categories}%>
 			<!-- Content -->
 			<div id="content" class="10u skel-cell-important">
 				<section>
-					<div class="12u breadcomb">・首頁 > 最新消息</div>
+					<%= render partial: 'shared/breadcomb', locals: {path: @path}%>
 					<header class="major">
-						<h2>最新消息</h2>
+						<h2><%=@title%></h2>
 						<!--span class="byline">副標題</span-->
 					</header>
 					<ul class="default">
-						<li>・2015-08-31 - <a href="news_inner.html">會都方人是斷說素失德傳回更發一會乎什大！何文一我如出裡參草食它社和部投利</a></li><li>・2015-08-31-<a href="#">會都方人是斷說素失德傳回更發一會乎什大！何文一我如出裡參草食它社和部投利</a></li><li>・2015-08-31 - <a href="#">會都方人是斷說素失德傳回更發一會乎什大！何文一我如出裡參草食它社和部投利</a></li>
-						<li>・2015-08-31 - <a href="#">便就信？園時住在心口場然時樹語下關任最政發會更求濟應生朋天她起然了臺進晚行結上木升必入因；又會放現業智</a></li><li>・2015-08-31-<a href="#">便就信？園時住在心口場然時樹語下關任最政發會更求濟應生朋天她起然了臺進晚行結上木升必入因；又會放現業智</a></li>
-						<li>・2015-08-31 - <a href="#">公小友中無人山太？同類在傳第的發。制的如人配果運？明給區比男布建示有特關懷影相的</a></li>
-						<li>・2015-08-31 - <a href="#">公小友中無人山太？同類在傳第的發。制的如人配果運？明給區比男布建示有特關懷影相的</a></li>
-						<li>・2015-08-31 - <a href="#">應五光一友比候：舉細道，要年麼破……是此過？專看品期同！功引好英民？球得為準年高、要大</a></li><li>・2015-08-31 - <a href="#">應五光一友比候：舉細道，要年麼破……是此過？專看品期同！功引好英民？球得為準年高、要大</a></li><li>・2015-08-31 - <a href="#">應五光一友比候：舉細道，要年麼破……是此過？專看品期同！功引好英民？球得為準年高、要大</a></li><li>・2015-08-31 - <a href="#">會都方人是斷說素失德傳回更發一會乎什大！何文一我如出裡參草食它社和部投利</a></li><li>・2015-08-31-<a href="#">會都方人是斷說素失德傳回更發一會乎什大！何文一我如出裡參草食它社和部投利</a></li><li>・2015-08-31 - <a href="#">會都方人是斷說素失德傳回更發一會乎什大！何文一我如出裡參草食它社和部投利</a></li>
-						<li>・2015-08-31 - <a href="#">便就信？園時住在心口場然時樹語下關任最政發會更求濟應生朋天她起然了臺進晚行結上木升必入因；又會放現業智</a></li><li>・2015-08-31-<a href="#">便就信？園時住在心口場然時樹語下關任最政發會更求濟應生朋天她起然了臺進晚行結上木升必入因；又會放現業智</a></li>
-						<li>・2015-08-31 - <a href="#">公小友中無人山太？同類在傳第的發。制的如人配果運？明給區比男布建示有特關懷影相的</a></li>
-						<li>・2015-08-31 - <a href="#">公小友中無人山太？同類在傳第的發。制的如人配果運？明給區比男布建示有特關懷影相的</a></li>
-						<li>・2015-08-31 - <a href="#">應五光一友比候：舉細道，要年麼破……是此過？專看品期同！功引好英民？球得為準年高、要大</a></li><li>・2015-08-31 - <a href="#">應五光一友比候：舉細道，要年麼破……是此過？專看品期同！功引好英民？球得為準年高、要大</a></li><li>・2015-08-31 - <a href="#">應五光一友比候：舉細道，要年麼破……是此過？專看品期同！功引好英民？球得為準年高、要大</a></li>
+						<%@news.each do |new_record|%>
+						<li><%=new_record.created_at.strftime('%F')%> - <%=link_to new_record.title, news_path(new_record.id)%><li>
+						<%end%>
 					</ul>
 				</section>
 			</div>
 		</div>
 	</div>
-	<!--頁碼-->
-	<div class="pagination">
-		<a href="#" class="page gradient">first</a><a href=
-	"#" class="page gradient">2</a><a href="#" class=
-"page gradient">3</a><span class=
-"page active">4</span><a href="#" class=
-"page gradient">5</a><a href="#" class=
-"page gradient">6</a><a href="#" class=
-"page gradient">last</a>
+<!--頁碼-->
+<%= will_paginate @news%>
+<div class="pagination">
+	<a href="#" class="page gradient">first</a>
+	<a href="#" class="page gradient">2</a>
+	<a href="#" class="page gradient">3</a><span class="page active">4</span>
+	<a href="#" class="page gradient">5</a>
+	<a href="#" class="page gradient">6</a>
+	<a href="#" class="page gradient">last</a>
 </div>
 </div>

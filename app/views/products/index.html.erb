@@ -3,159 +3,46 @@
 	<div class="container">
 		<div class="row">
 			<!-- Sidebar -->
-			<div id="sidebar" class="2u">
-				<section>
-					<header class="major">
-						<form>
-							<input type="search" placeholder="搜尋商品">
-						</form>
-					</header>
-					<ul class="default">
-						<li><a href="shop_category.html">新興果樹品種</a> (3)</li>
-						<li><a href="#">芒果品種</a> (3)</li>
-						<li><a href="#">檸檬品種</a> (6)</li>
-						<li><a href="#">芭樂品種</a> (9)</li>
-						<li><a href="#">荔枝品種</a> (16)</li>
-						<li><a href="#">龍眼品種</a> (61)</li>
-						<li><a href="#">蓮霧品種</a> (17)</li>
-						<li><a href="#">柚子品種</a> (21)</li>
-						<li><a href="#">酪梨品種</a> (61)</li>
-						<li><a href="#">釋迦品種</a> (7)</li>
-						<li><a href="#">柳丁品種</a> (19)</li>
-						<li><a href="#">枇杷品種</a> (1)</li>
-						<li><a href="#">熱帶水果專區</a> (5)</li>
-						<li><a href="#">葡萄品種</a> (12)</li>
-						<li><a href="#">李子品種</a> (34)</li>
-						<li><a href="#">柑橘品種(</a> (66)</li>
-						<li><a href="#">櫻桃品種</a> (32)</li>
-						<li><a href="#">棗子品種</a> (13)</li>
-						<li><a href="#">大欉果苗販售區</a> (3)</li>
-					</ul>
-				</section>
-			</div>
+			<%= render partial: 'products/left_section', locals: {categories: @categories}%>
 			<!-- Content -->
 			<div id="content" class="10u skel-cell-important">
+				<%@products.each_with_index do |products, index|%>
 				<section>
-					<div class="12u breadcomb">・首頁 > 線上購物</div>
+					<%= render partial: 'shared/breadcomb', locals: {path: @path} if index == 0%>
 					<header class="major">
-						<h2>線上購物</h2>
-						<span class="byline" style="border-top:none;margin-top: 0;">新興果樹品種</span>
+						<%="<h2>線上購物</h2>".html_safe  if index == 0%>
+						<span class="byline" style="border-top:none;margin-top: 0;"><%=products.first.category.name%></span>
 					</header>
 					<div class="row">
+						<%products.each do |product|%>
 						<div class="4u">
 							<section>
-								<a href="shop_inner.html"><img src="images/1905940_L.jpg" class="feature image"></a>
+								<%=link_to product_path(product) do%>
+								<%=image_tag '1905940_L.jpg', class: "feature image"%>
+								<%end%>
 								<header>
-									果樹品種
+									<%=product.name%>
 								</header>
-								<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-								優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
+								<span style="font-size:14px;"><%=product.comment%></span><br>
+								優惠價：<span style="color:#FF4400; font-size:1.5em;">$<%=product.price%></span>
 							</section>
-						</div>																												<div class="4u">
-						<section>
-							<img src="images/1700866_L.jpg" class="feature image">
-							<header>
-								果樹品種
-							</header>
-							<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-							優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-						</section>
-					</div>										<div class="4u">
-					<section>
-						<img src="images/1905940_L.jpg" class="feature image">
-						<header>
-							果樹品種
-						</header>
-						<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-						優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-					</section>
-				</div>
-				
-			</div>
-		</section>
-		<section>
-			<header class="major">
-				<span class="byline">新興果樹品種</span>
-			</header>
-			<div class="row">
-				<div class="4u">
-					<section>
-						<img src="images/1905940_L.jpg" class="feature image">
-						<header>
-							果樹品種
-						</header>
-						<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-						優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-					</section>
-				</div>																												<div class="4u">
-				<section>
-					<img src="images/1700866_L.jpg" class="feature image">
-					<header>
-						果樹品種
-					</header>
-					<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-					優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
+						</div>
+						<%end%>
+					</div>
 				</section>
-			</div>										<div class="4u">
-			<section>
-				<img src="images/1905940_L.jpg" class="feature image">
-				<header>
-					果樹品種
-				</header>
-				<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-				優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-			</section>
+				<%end%>
+			</div>
 		</div>
-	</div>
-</section>
-<section>
-	<header class="major">
-		<span class="byline">新興果樹品種</span>
-	</header>
-	<div class="row">
-		<div class="4u">
-			<section>
-				<img src="images/1905940_L.jpg" class="feature image">
-				<header>
-					果樹品種
-				</header>
-				<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-				優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-			</section>
-		</div>																												<div class="4u">
-		<section>
-			<img src="images/1700866_L.jpg" class="feature image">
-			<header>
-				果樹品種
-			</header>
-			<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-			優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-		</section>
-	</div>										<div class="4u">
-	<section>
-		<img src="images/1905940_L.jpg" class="feature image">
-		<header>
-			果樹品種
-		</header>
-		<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-		優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
 	</section>
 </div>
-</div>
-</section>
-</div>
-</div>
-</div>
 <!--頁碼-->
+<%= will_paginate @products %>
 <div class="pagination">
-<a href="#" class="page gradient">first</a><a href=
-"#" class="page gradient">2</a><a href="#" class=
-"page gradient">3</a><span class=
-"page active">4</span><a href="#" class=
-"page gradient">5</a><a href="#" class=
-"page gradient">6</a><a href="#" class=
-"page gradient">last</a>
+	<a href="#" class="page gradient">first</a>
+	<a href="#" class="page gradient">2</a>
+	<a href="#" class="page gradient">3</a><span class="page active">4</span>
+	<a href="#" class="page gradient">5</a>
+	<a href="#" class="page gradient">6</a>
+	<a href="#" class="page gradient">last</a>
 </div>
 </div>
-</body>
-</html>

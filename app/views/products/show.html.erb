@@ -3,51 +3,22 @@
 	<div class="container">
 		<div class="row">
 			<!-- Sidebar -->
-			<div id="sidebar" class="2u">
-				<section>
-					<header class="major">
-						<form>
-							<input type="search" placeholder="搜尋商品">
-						</form>
-					</header>
-					<ul class="default">
-						<li><a href="shop_category.html">新興果樹品種</a> (3)</li>
-						<li><a href="#">芒果品種</a> (3)</li>
-						<li><a href="#">檸檬品種</a> (6)</li>
-						<li><a href="#">芭樂品種</a> (9)</li>
-						<li><a href="#">荔枝品種</a> (16)</li>
-						<li><a href="#">龍眼品種</a> (61)</li>
-						<li><a href="#">蓮霧品種</a> (17)</li>
-						<li><a href="#">柚子品種</a> (21)</li>
-						<li><a href="#">酪梨品種</a> (61)</li>
-						<li><a href="#">釋迦品種</a> (7)</li>
-						<li><a href="#">柳丁品種</a> (19)</li>
-						<li><a href="#">枇杷品種</a> (1)</li>
-						<li><a href="#">熱帶水果專區</a> (5)</li>
-						<li><a href="#">葡萄品種</a> (12)</li>
-						<li><a href="#">李子品種</a> (34)</li>
-						<li><a href="#">柑橘品種(</a> (66)</li>
-						<li><a href="#">櫻桃品種</a> (32)</li>
-						<li><a href="#">棗子品種</a> (13)</li>
-						<li><a href="#">大欉果苗販售區</a> (3)</li>
-					</ul>
-				</section>
-			</div>
+			<%= render partial: 'products/left_section', locals: {categories: @categories}%>
 			<!-- Content -->
 			<div id="content" class="10u skel-cell-important">
 				<section>
 					<div class="12u breadcomb">・首頁 > 線上購物 > 新興果樹品種 > 果樹品種</div>
 					<header class="major">
-						<h2>果樹品種</h2>
+						<h2><%=@product.name%></h2>
 					</header>
 					<div class="row">
 						<div class="5u">
-							<img src="images/cargo2.jpg" class="feature image" style="max-width:100%;">
+							<%=image_tag 'cargo2.jpg', class: "feature image", style: "max-width:100%;" %>
 						</div>
 						<div class="7u">
 							<section>
 								<p style="font-size:14px; text-align:left; line-height:0;">
-									優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
+									優惠價：<span style="color:#FF4400; font-size:1.5em;">$<%=@product.price%></span>
 									<div class="row">
 										<span class="6u" style="font-size:14px; text-align:left;">
 											數量：<select>
@@ -58,13 +29,15 @@
 											</select>
 										</span>
 										<span class="6u" style="font-size:14px; text-align:left;">
-											庫存：50
+											庫存：<%=@product.stock%>
 										</span>
 									</div>
-									<br><button class="red-d"><i class="fa fa-shopping-cart"></i>  放入購物車</button>
+									<br>
+									<button class="red-d"><i class="fa fa-shopping-cart"></i>放入購物車</button>
 									<button class="blue-d">加入追蹤清單</button>
 								</p>
 								<p style="font-size:14px; text-align:left;">
+									<br />
 									<strong>支付：</strong><br>匯款 / 轉帳、貨到付款<br>
 									<strong>運費：</strong><br>
 									宅配(滿1500元,先匯款):0元<br>
@@ -80,6 +53,8 @@
 									<h3 style="text-align:left;">詳細介紹</h3><br>
 								</header>
 								<p style="text-align:left;">
+									<%=@product.description%>
+									<br />
 									即日起<br />
 									滿2000元『匯款者』，免運！<br />
 									買越多送越多！<br />
@@ -100,46 +75,18 @@
 									<h3 style="text-align:left;">其他商品</h3><br>
 								</header>
 								<div class="row">
+									<%@products.each do |product|%>
 									<div class="3u">
 										<section>
-											<img src="images/1905940_L.jpg" class="feature image" style="max-width:100%;">
+											<%=image_tag '1905940_L.jpg', class: "feature image", style: "max-width:100%;"%>
 											<header>
-												果樹品種
+												<%=product.name%>
 											</header>
-											<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-											優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
+											<span style="font-size:14px;"><%=product.comment%></span><br>
+											優惠價：<span style="color:#FF4400; font-size:1.5em;">$<%=product.price%></span>
 										</section>
 									</div>
-									<div class="3u">
-										<section>
-											<img src="images/1905940_L.jpg" class="feature image" style="max-width:100%;">
-											<header>
-												果樹品種
-											</header>
-											<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-											優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-										</section>
-									</div>
-									<div class="3u">
-										<section>
-											<img src="images/1905940_L.jpg" class="feature image" style="max-width:100%;">
-											<header>
-												果樹品種
-											</header>
-											<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-											優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-										</section>
-									</div>
-									<div class="3u">
-										<section>
-											<img src="images/1905940_L.jpg" class="feature image" style="max-width:100%;">
-											<header>
-												果樹品種
-											</header>
-											<span style="font-size:14px;">適合觀賞及食用，滿三千免運費</span><br>
-											優惠價：<span style="color:#FF4400; font-size:1.5em;">$125</span>
-										</section>
-									</div>
+									<%end%>
 								</div>
 							</section>
 						</div>

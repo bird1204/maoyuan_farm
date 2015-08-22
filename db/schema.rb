@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821174837) do
+ActiveRecord::Schema.define(version: 20150822055636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20150821174837) do
     t.text     "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "category"
   end
+
+  add_index "news", ["category"], name: "index_news_on_category", using: :btree
 
   create_table "payment_methods", force: :cascade do |t|
     t.string   "name",       null: false

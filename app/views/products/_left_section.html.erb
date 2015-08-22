@@ -1,0 +1,14 @@
+<div id="sidebar" class="2u">
+  <section>
+    <header class="major">
+      <form>
+        <input type="search" placeholder="搜尋商品">
+      </form>
+    </header>
+    <ul class="default">
+      <%categories.each do |category|%>
+        <li><%=link_to category.name, products_path(type: category.id)%>(<%=category.products.count%>)</li>
+      <%end%>
+    </ul>
+  </section>
+</div>
