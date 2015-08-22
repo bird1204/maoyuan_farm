@@ -17,11 +17,13 @@
       <div id="header">
         <div class="container">
           <!-- Logo -->
-          <h1><%=link_to '茂發花果園', root_path%></h1>
+          <h1><%=link_to '茂發花果園', root_path, id: 'logo' if @controller != 'entrys'%></h1>
           <!-- Nav -->
           <nav id="nav">
             <ul>
-              <li class="<%='active' if @controller == 'entrys'%>"><%=link_to '首頁', root_path%></li>
+              <%if @controller == 'entrys'%>
+                <li class='active'><%=link_to '首頁', root_path%></li>
+              <%end%>
               <li class="<%='active' if @controller == 'products'%>"><%=link_to '線上購物', products_path%></li>
               <li class="<%='active' if @controller == 'abouts'%>"><%=link_to '關於茂發', abouts_path%></li>
               <li class="<%='active' if @controller == 'services'%>"><%=link_to '線上服務', services_path%></li>

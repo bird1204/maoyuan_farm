@@ -5,6 +5,14 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'entrys#index'
+  resources :abouts, only: [:index]
+  resources :services, only: [:index]
+  resources :catalogs, only: [:index]
+  resources :news, only: [:index, :show]
+  resources :contacts, only: [:index]
+  resources :steps, only: [:index]
+  resources :direct_sellings, only: [:show]
+  resources :products, only: [:index, :show]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -54,13 +62,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  resources :abouts, only: [:index]
-  resources :services, only: [:index]
-  resources :catalogs, only: [:index]
-  resources :news, only: [:index, :show]
-  resources :contacts, only: [:index]
-  resources :steps, only: [:index]
-  resources :direct_sellings, only: [:show]
-  resources :products, only: [:index, :show]
 end
