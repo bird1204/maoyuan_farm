@@ -13,6 +13,5 @@
  *= require common/skel
  *= require common/style
  *= require_self
- *= require_directory .
  */
 
