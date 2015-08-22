@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :steps, only: [:index]
   resources :direct_sellings, only: [:show]
   resources :products, only: [:index, :show]
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
