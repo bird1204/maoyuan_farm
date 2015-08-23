@@ -10,12 +10,11 @@ class ServiceMailer < ApplicationMailer
     @subject = '我們已經收到你的疑問'
     mail to: mail_address, subject: @subject
   end
-
   def send_to_services(user, phone, mail_address, comment)
     @user = user
     @comment = comment
     @subject = '收到一則客戶留言'
     @phone = phone
-    mail to: "g87110711@gmail.com", subject: @subject
+    mail to: MaoyuanFarm::Application.config.service_mails, subject: @subject
   end
 end
