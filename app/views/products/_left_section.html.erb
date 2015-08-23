@@ -1,9 +1,10 @@
 <div id="sidebar" class="2u">
   <section>
     <header class="major">
-      <form>
-        <input type="search" placeholder="搜尋商品">
-      </form>
+      <%=form_tag products_path, method: :GET do%>
+        <%=text_field_tag 'query_string', nil, placeholder: '搜尋商品', type: 'search'%>
+        <%=submit_tag '搜尋'%>
+      <%end%>
     </header>
     <ul class="default">
       <%categories.each do |category|%>

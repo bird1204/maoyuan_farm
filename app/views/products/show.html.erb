@@ -7,7 +7,7 @@
 			<!-- Content -->
 			<div id="content" class="10u skel-cell-important">
 				<section>
-					<div class="12u breadcomb">・首頁 > 線上購物 > 新興果樹品種 > 果樹品種</div>
+					<%= render partial: 'shared/breadcomb', locals: {path: @path}%>
 					<header class="major">
 						<h2><%=@product.name%></h2>
 					</header>
@@ -21,11 +21,11 @@
 									優惠價：<span style="color:#FF4400; font-size:1.5em;">$<%=@product.price%></span>
 									<div class="row">
 										<span class="6u" style="font-size:14px; text-align:left;">
-											數量：<select>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
+											數量：
+											<select id = "amount">
+												<%10.times do |amount|%>
+													<option value="<%=amount+1%>"><%=amount+1%></option>
+												<%end%>
 											</select>
 										</span>
 										<span class="6u" style="font-size:14px; text-align:left;">

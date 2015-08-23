@@ -1,3 +1,3 @@
 class New < ActiveRecord::Base
-  self.per_page = 2
+  self.per_page = 5
 end
