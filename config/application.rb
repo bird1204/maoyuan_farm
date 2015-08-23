@@ -22,6 +22,6 @@ module MaoyuanFarm
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.service_mails = %w(g8071107@gmail.com bird1204@gmail.com keeliker@gmail.com)
+    config.service_mails = %w(g8071107@gmail.com bird1204@gmail.com keeliker@gmail.com n0975806638@gmail.com)
   end
 end
