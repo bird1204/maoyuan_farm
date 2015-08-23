@@ -9,10 +9,9 @@
 						<h2>農友直銷</h2>
 					</header>
 					<ul class="default">
-						<li><a href="#">吉伯特的蛋黃小販</a></li>
-						<li><a href="#">趴特萬的農產品</a></li>
-						<li><a href="#">萬特趴的農產品</a></li>
-						<li><a href="#">特伯吉的農產品</a></li>
+						<%@friends.each_with_index do |friend, index|%>
+						<li><%=link_to friend, direct_selling_path(index + 1)%></li>
+						<%end%>
 					</ul>
 				</section>
 			</div>
@@ -21,15 +20,11 @@
 				<section style="text-align:left;">
 					<%= render partial: 'shared/breadcomb', locals: {path: @path}%>
 					<header class="major">
-						<h2>吉伯特的蛋黃小販</h2>
-						<span class="byline">蛋黃哥</span>
+						<h2><%=@title%></h2>
+						<span class="byline"><%=@desc%></span>
 					</header>
-					<%=image_tag 'market_example.jpg'%>
-					<br>
-					好吃的蛋黃來囉^^<br>
-					小編每年都要訂『丘家』蛋黃來做月餅過中秋<br>
-					現在開放預購囉~<br>
-					0992-120-412 尾翼哥
+					<%=image_tag @image%>
+					<%=@content.html_safe%>
 				</section>
 			</div>
 		</div>

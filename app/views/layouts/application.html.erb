@@ -36,8 +36,11 @@
           </nav>
         </div>
       </div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% flash.each do |name, msg| -%>
+        <div class="wrapper style4">
+        <%= content_tag :div, msg, class: name %>
+        </div>
+      <% end -%>
       <%= yield %>
       <!-- Footer -->
       <div id="footer">
