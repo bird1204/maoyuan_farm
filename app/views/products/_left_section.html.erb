@@ -1,12 +1,16 @@
 <div id="sidebar" class="2u">
   <section>
     <header class="major">
+      <hr>
+      <h3>搜尋商品</h3>
       <%=form_tag products_path, method: :GET do%>
-        <%=text_field_tag 'query_string', nil, placeholder: '搜尋商品', type: 'search'%>
-        <%=submit_tag '搜尋'%>
+        <%=text_field_tag 'query_string', nil, placeholder: '搜尋商品', type: 'search' %>
+        <%=submit_tag '搜尋' , :class => 'search'%>
       <%end%>
     </header>
+    <hr>
     <ul class="default">
+      <h3>商品分類</h3>
       <%categories.each do |category|%>
         <li><%=link_to category.name, products_path(type: category.id)%>(<%=category.products.count%>)</li>
       <%end%>
