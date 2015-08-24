@@ -10,19 +10,6 @@
     <meta name="keywords" content="" />
     <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-    <script type="text/javascript">
-
-      function clearFlash(){
-        $('.flash_msg').slideUp();
-      };
-
-      $('document').ready(function() {
-        setTimeout(function() {
-          clearFlash();
-        }, 3000);
-      });
-
-    </script>
   </head>
   <body class="<%='homepage' if @controller == 'entrys'%>">
     <div class="wrapper style1">
