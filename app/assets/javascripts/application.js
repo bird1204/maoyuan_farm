@@ -17,3 +17,12 @@
 // = require skel-layers.min
 // = require_tree .
 
+      function clearFlash(){
+        $('.flash_msg').slideUp();
+      };
+
+      $('document').ready(function() {
+        setTimeout(function() {
+          clearFlash();
+        }, 3000);
+      });
