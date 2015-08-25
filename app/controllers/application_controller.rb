@@ -13,4 +13,16 @@ class ApplicationController < ActionController::Base
   def breadcomb
     @path = "#{I18n.t "website.#{@controller}.head"} > #{I18n.t "website.#{@controller}.#{@action}"}"
   end
+
+  def after_sign_in_path_for(resource)
+    products_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
+  def after_sign_up_path_for(resource)
+    products_path
+  end
 end

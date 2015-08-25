@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>茂發花果園</title>
-    <%= stylesheet_link_tag    'application',params[:controller], media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', params[:controller], media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -17,22 +17,21 @@
       <div id="header">
         <div class="container">
           <!-- Logo -->
-          <h1><%=link_to '茂發花果園', root_path, id: 'logo' if @controller != 'entrys'%></h1>
+          <h1><%=logo_link_to '茂發花果園', root_path, id: 'logo' %></h1>
           <!-- Nav -->
           <nav id="nav">
             <ul>
-              <%if @controller == 'entrys'%>
-                <li class='active'><%=link_to '首頁', root_path%></li>
-              <%end%>
-              <li class="<%='active' if @controller == 'products'%>"><%=link_to '線上購物', products_path%></li>
-              <li class="<%='active' if @controller == 'abouts'%>"><%=link_to '關於茂發', abouts_path%></li>
-              <li class="<%='active' if @controller == 'services'%>"><%=link_to '線上服務', services_path%></li>
-              <li class="<%='active' if @controller == 'catalogs'%>"><%=link_to '線上型錄', catalogs_path%></li>
-              <li class="<%='active' if @controller == 'news'%>"><%=link_to '最新消息', news_index_path%></li>
-              <li class="<%='active' if @controller == 'contacts'%>"><%=link_to '聯絡我們', contacts_path%></li>
-              <li class="<%='active' if @controller == 'steps'%>"><%=link_to '購物流程', steps_path%></li>
-              <li class="<%='active' if @controller == 'direct_sellings'%>"><%=link_to '農友直銷', direct_selling_path(1)%></li>
+              <%=head_link_to '首頁', root_path %>
+              <%=active_link_to '線上購物', products_path %>
+              <%=active_link_to '關於茂發', abouts_path %>
+              <%=active_link_to '線上服務', services_path %>
+              <%=active_link_to '線上型錄', catalogs_path %>
+              <%=active_link_to '最新消息', news_index_path %>
+              <%=active_link_to '聯絡我們', contacts_path %>
+              <%=active_link_to '購物流程', steps_path %>
+              <%=active_link_to '農友直銷', direct_selling_path(1) %>
             </ul>
+            <%=render partial: 'shared/user_nav_bar'%>
           </nav>
         </div>
       </div>
@@ -44,8 +43,8 @@
             <%= content_tag :span, msg, class: name %>
           </div>
         </div>
-
       <% end -%>
+
       <%= yield %>
       <!-- Footer -->
       <div id="footer">
