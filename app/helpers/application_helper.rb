@@ -3,7 +3,7 @@ module ApplicationHelper
     render partial: 'shared/paginate_bar', locals: { objects: data } if data.total_pages > 1
   end
   def logo_link_to(text, path, option={})
-    content_tag(:li, link_to(text, path, option), class: "active") unless current_page?('entrys')
+    content_tag(:p, link_to(text, path, option), class: "active") unless current_page?('entrys')
   end
   def head_link_to(text, path)
     content_tag(:li, link_to(text, path), class: "active") if current_page?(path)
