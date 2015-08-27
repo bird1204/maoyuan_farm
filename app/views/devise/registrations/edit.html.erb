@@ -1,46 +1,184 @@
+<style type="text/css">
+    h2 {
+    color: #a4bc4f;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    padding: 30px 0px 20px 25px
+  }
+
+  a {
+    color: #46485c;
+    text-decoration: none;
+  }
+
+  .login {
+    margin: -184px 0px 0px -150px;
+    background: #FFFFFF;
+    border-radius: 3px;
+  }
+
+  .user, .pw{
+    border-left: 5px solid transparent;
+    transition: all 0.3s linear;
+  }
+
+  .user:hover, .pw:hover{
+    background: #F0F0F0;
+      border-left: 5px solid #8FB252;
+      
+  }
+
+  input[type="text"], input[type="password"] {
+    padding: 20px 0px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: #222;
+    margin: 0 auto;
+    text-indent: 10px;
+    font-weight: bold;
+  }
+
+
+  label {
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    content: "";
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0px 0px 0px 2px #ccc;
+  }
+
+  #remember:checked ~ label[for=remember] {
+    background: #b5cd60;
+    border: 3px solid white;
+    box-shadow: 0px 0px 0px 2px #b5cd60;
+  }
+
+  input[type="email"]{
+    border:none;
+  }
+
+  .forgot {
+    margin-top: 25px;
+    display: block;
+    font-size: 13px;
+    text-align: left;
+    font-weight: bold;
+    color: #b5b5b5;
+    padding: 0px 0px 25px 25px;
+  }
+
+
+  ::-webkit-input-placeholder {
+    color: #777;
+    font-weight: bold;
+  }
+
+  .remlog{
+    border-bottom: 1px solid #ddd;
+  }
+
+  .remember {
+    padding: 30px 0px;
+    font-size: 12px;
+    text-indent: 20px;
+    line-height: 15px;
+    margin-left: 25px;
+    display: inline-block;
+  }
+
+  .forgot h3{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+
+  .forgot a{
+    color: #777;
+  }
+
+  .edit-left{
+    overflow: hidden;
+    height: 478px;
+    border-radius: 8px;
+  }
+  .edit-left img{
+    border-radius: 8px;
+  }
+
+</style>
+
 <div id="main" class="wrapper style4">
   <div id="content" class="container">
     <section>
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
+    <div class="row">
+        <div class="4u edit-left">
+          <%=image_tag 'edit-left.jpg'%>
         </div>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <div class="8u">
+        <div class='top'>
+          <h2>Edit <%= resource_name.to_s.humanize %></h2>
+        </div>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="user">
+            <%= f.email_field :email , :placeholder=>"電子信箱", autofocus: true %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+
+          <div class="pw">
+            <%= f.password_field :password, :placeholder=>"修改密碼", autocomplete: "off" %>
+            
+          </div>
+
+          <div class="pw">
+            <%= f.password_field :password_confirmation, :placeholder=>"修改密碼確認", autocomplete: "off" %>
+          </div>
+
+          <div class="pw">
+            <%= f.password_field :current_password, :placeholder=>"輸入您目前的密碼，以確認您的身份", autocomplete: "off" %>
+          </div>
+        <div class="row">
+          <div class="actions 2u">
+            <%= f.submit "送出" %>
+          </div>
+        </div>
         <% end %>
 
-        <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %>
+        <div class="row">
+          <div class="12u">
+            <header class="major">
+              <span class="byline"></span>
+              以下動作會刪除您的帳號，請考慮再進行
+            </header>
+          </div>
+
+          <div class="3u">
+                <%= button_to "刪除帳號", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :style => "background-color: #ff5555;" %>
+          </div>
+
+          <div class="2u">
+                <%= button_to "返回", :back %>
+          </div>
+
         </div>
 
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
 
-        <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Update" %>
-        </div>
-      <% end %>
-
-      <h3>Cancel my account</h3>
-
-      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-      <%= link_to "Back", :back %>
-
+      </div>
+    </div>
   </section>
   </div>
 </div>
