@@ -61,23 +61,6 @@
     box-shadow: 0px 0px 0px 2px #b5cd60;
   }
 
-
-  input[type="submit"] {
-    background: #b5cd60;
-    border: 0;
-    height: 38px;
-    border-radius: 3px;
-    color: white;
-    font-weight: bold;
-    padding: 0px 25px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
-    margin-left: 50px;
-  }
-  input[type="submit"]:hover {
-    background: #a4bc4f;
-  }
-
   input[type="email"]{
     border:none;
   }
@@ -120,13 +103,28 @@
   .forgot a{
     color: #777;
   }
+
+  .login-left{
+    overflow: hidden;
+    height: 400px;
+    border-radius: 8px;
+  }
+  .login-left img{
+    border-radius: 8px;
+  }
+
 </style>
 
 <div id="main" class="wrapper style4">
   <div id="content" class="container">
     <section>
+      <div class="row">
+        <div class="4u login-left">
+          <%=image_tag 'login-left.jpg'%>
+        </div>
 
-            <div class='top'>
+        <div class="8u">
+          <div class='top'>
               <h2>登入</h2>
             </div>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -156,6 +154,9 @@
               </h3>
               <%= render "devise/shared/links" %>
             </div>
+        </div>
+      </div>
+            
 
   </section>
   </div>
