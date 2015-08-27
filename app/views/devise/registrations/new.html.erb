@@ -1,35 +1,174 @@
+<style type="text/css">
+    h2 {
+    color: #a4bc4f;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    padding: 30px 0px 20px 25px
+  }
+
+  a {
+    color: #46485c;
+    text-decoration: none;
+  }
+
+  .login {
+    margin: -184px 0px 0px -150px;
+    background: #FFFFFF;
+    border-radius: 3px;
+  }
+
+  .user, .pw{
+    border-left: 5px solid transparent;
+    transition: all 0.3s linear;
+  }
+
+  .user:hover, .pw:hover{
+    background: #F0F0F0;
+      border-left: 5px solid #8FB252;
+      
+  }
+
+  input[type="text"], input[type="password"] {
+    padding: 20px 0px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    color: #222;
+    margin: 0 auto;
+    text-indent: 10px;
+    font-weight: bold;
+  }
+
+
+  label {
+    display: block;
+    position: absolute;
+    margin-top: 2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 2px;
+    content: "";
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0px 0px 0px 2px #ccc;
+  }
+
+  #remember:checked ~ label[for=remember] {
+    background: #b5cd60;
+    border: 3px solid white;
+    box-shadow: 0px 0px 0px 2px #b5cd60;
+  }
+
+  input[type="email"]{
+    border:none;
+  }
+
+  .forgot {
+    margin-top: 25px;
+    display: block;
+    font-size: 13px;
+    text-align: left;
+    font-weight: bold;
+    color: #b5b5b5;
+    padding: 0px 0px 25px 25px;
+  }
+
+
+  ::-webkit-input-placeholder {
+    color: #777;
+    font-weight: bold;
+  }
+
+  .remlog{
+    border-bottom: 1px solid #ddd;
+  }
+
+  .remember {
+    padding: 30px 0px;
+    font-size: 12px;
+    text-indent: 20px;
+    line-height: 15px;
+    margin-left: 25px;
+    display: inline-block;
+  }
+
+  .forgot h3{
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+
+  .forgot a{
+    color: #777;
+  }
+
+/* 差異在這邊 */
+
+  .signup-left{
+    overflow: hidden;
+    height: 400px;
+    border-radius: 8px;
+  }
+  .signup-left img{
+    border-radius: 8px;
+  }
+
+  .pw em{
+    text-align: left;
+  }
+
+</style>
+
 <div id="main" class="wrapper style4">
   <div id="content" class="container">
     <section>
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <div class="row">
+      <div class="4u signup-left">
+        <%=image_tag 'edit-left.jpg'%>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <div class="8u">
+          <div class='top'>
+            <h2>加入會員</h2>
+            <span class="byline"></span>
+          </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+          <div class="user">
+            <%= f.email_field :email, :placeholder=>"電子信箱" , autofocus: true %>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+          <div class="pw">
+            <%= f.password_field :password, :placeholder=>"密碼" , autocomplete: "off" %>
+            <% if @validatable %>
+            <em>(<%= @minimum_password_length %> 碼數字)</em>
+            <% end %>
+          </div>
 
-<%= render "devise/shared/links" %>
+          <div class="pw">
+            <%= f.password_field :password, :placeholder=>"密碼確認" , autocomplete: "off" %>
+          </div>
+
+          <div class="row">
+            <div class="actions 2u">
+              <%= f.submit "送出" %>
+            </div>
+        </div>
+        <% end %>
+
+          <div class='forgot'>
+              <h3>
+                已有會員？
+              </h3>
+              <%= render "devise/shared/links" %>
+          </div>
+      </div>
+    </div>
   </section>
   </div>
 </div>
