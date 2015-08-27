@@ -4,6 +4,13 @@
 			<h2>茂發花果園</h2>
 			<!--span>副標題</span-->
 			<p>我們位於屏東台三線，提供您蔬果及花卉，及種植的諮詢與建議。</p>
+				<% if current_user %>
+				    <%= link_to "登出", destroy_user_session_path, method: :delete %> |
+				    <%= link_to('修改密碼', edit_registration_path(:user)) %>
+				<% else %>
+				    <%= link_to('註冊', new_registration_path(:user)) %> |
+				    <%= link_to('登入', new_session_path(:user)) %>
+				<% end %>
 		</section>
 	</div>
 </div>

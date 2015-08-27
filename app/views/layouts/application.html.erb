@@ -31,7 +31,6 @@
               <%=active_link_to '購物流程', steps_path %>
               <%=active_link_to '農友直銷', direct_selling_path(1) %>
             </ul>
-            <%=render partial: 'shared/user_nav_bar'%>
           </nav>
         </div>
       </div>
@@ -44,7 +43,6 @@
           </div>
         </div>
       <% end -%>
-
       <%= yield %>
       <!-- Footer -->
       <div id="footer">
