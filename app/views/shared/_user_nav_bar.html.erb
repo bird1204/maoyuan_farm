@@ -1,7 +1,9 @@
+<div class="12u user_nav_bar">
 <% if current_user %>
-    <%= link_to "登出", destroy_user_session_path, method: :delete %> |
-    <%= link_to('修改密碼', edit_registration_path(:user)) %>
+    <i class="fa fa-sign-out"></i> <%= link_to "登出", destroy_user_session_path, method: :delete %> |
+    <i class="fa fa-key"></i> <%= link_to('修改密碼', edit_registration_path(:user)) %>
 <% else %>
-    <%= link_to('註冊', new_registration_path(:user)) %> |
-    <%= link_to('登入', new_session_path(:user)) %>
+    <i class="fa fa-user"></i> <%= link_to('註冊', new_registration_path(:user)) %> |
+    <i class="fa fa-sign-in"></i> <%= link_to('登入', new_session_path(:user)) %>
 <% end %>
+</div>

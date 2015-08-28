@@ -1,16 +1,59 @@
-<h2>Forgot your password?</h2>
+<style type="text/css">
+  h2 {
+    color: #a4bc4f;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: left;
+    padding: 30px 0px 20px 25px
+  }
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+  a {
+    color: #46485c;
+    text-decoration: none;
+  }
+  .top p{
+  	text-align: left;
+  	margin-left: 23px;
+  }
+</style>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div id="main" class="wrapper style4">
+  <div id="content" class="container">
+    <section>
+      <div class="row">
+        <div class="4u login-left">
+          <%=image_tag 'edit-left.jpg'%>
+        </div>
+		<div class="8u">
+		   	<div class='top'>
+              <h2>忘記密碼</h2>
+				<p>系統將會寄給您一封電子郵件，請依照流程取得您的密碼。</p>
+            </div>
+
+		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		  <%= devise_error_messages! %>
+
+		  <div class='user'>
+              <%= f.email_field :email, :placeholder=>"輸入電子信箱" , autofocus: true %>
+            </div>
+
+        <div class="row">
+		  <div class="2u actions">
+		  <br>
+		    <%= f.submit "送出" %>
+		  </div>
+		 </div>
+		<% end %>
+
+
+            <div class='forgot'>
+              <h3>
+                密碼想起來了？或是尚未加入會員？
+              </h3>
+              <%= render "devise/shared/links" %>
+            </div>
+		</div>
+		</div>
+  	</section>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
