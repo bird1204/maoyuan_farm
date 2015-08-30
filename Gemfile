@@ -34,13 +34,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'will_paginate'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
-
 gem 'activeadmin', github: 'activeadmin'
-gem 'devise'
-gem 'cancan'
-gem 'draper'
-gem 'pundit'
 gem 'rails-i18n', '~> 4.0.0'
+gem 'carrierwave'
+gem "mini_magick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
