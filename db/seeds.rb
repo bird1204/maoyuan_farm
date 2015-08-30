@@ -39,3 +39,11 @@ data = [{name: 'mafia item_1', category_id: '1', description: 'DESC mafia_item_1
 {name: 'bird item_3', category_id: '3', description: ' DESC bird_item_3', price: 999, stock: 999, comment: 'bird_商品_3的說明'},]
 Product.create(data)
 p 'create products data ---> DONE'
+
+p 'create AdminUser data ---> START'
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+p 'create AdminUser data ---> DONE'
+
+p 'create User data ---> START'
+User.create!(email: 'maoyuan@example.com', password: 'password', password_confirmation: 'password')
+p 'create User data ---> DONE'
