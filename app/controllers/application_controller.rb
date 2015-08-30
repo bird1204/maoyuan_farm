@@ -6,12 +6,12 @@ class ApplicationController < ActionController::Base
   before_action :breadcomb
   def active_page
     path = Rails.application.routes.recognize_path(request.env['PATH_INFO'])
-    @controller = path[:controller]
-    @action = path[:action]
+    @current_controller = path[:controller]
+    @current_action = path[:action]
   end
 
   def breadcomb
-    @path = "#{I18n.t "website.#{@controller}.head"} > #{I18n.t "website.#{@controller}.#{@action}"}"
+    @path = "#{I18n.t "website.#{@current_controller}.head"} > #{I18n.t "website.#{@current_controller}.#{@current_action}"}"
   end
 
   def after_sign_in_path_for(resource)

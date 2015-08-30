@@ -15,8 +15,8 @@ module ApplicationHelper
     "active" if current_page?(controller)
   end
   def current_page?(controller)
-    controller = 'entrys' if controller = '/'
-    controller.include?(@controller)
+    controller = 'entrys' if controller == '/'
+    controller.include?(@current_controller)
   end
   def user_nav_bar
     render partial: 'shared/user_nav_bar' unless current_page?('entrys')
