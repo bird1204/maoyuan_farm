@@ -8,6 +8,7 @@
 			<div id="content" class="10u skel-cell-important">
 				<%@products.each_with_index do |products, index|%>
 				<section>
+					<%=user_nav_bar%>
 					<%=breadcomb_bar index %>
 					<header class="major">
 						<%=header_title index %>
@@ -36,5 +37,5 @@
 	</section>
 </div>
 <!--頁碼-->
-	<%=nav_bar @products%>
+	<%=paginate_bar @products%>
 </div>

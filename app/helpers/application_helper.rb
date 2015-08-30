@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def nav_bar(data)
+  def paginate_bar(data)
     render partial: 'shared/paginate_bar', locals: { objects: data } if data.total_pages > 1
   end
   def logo_link_to(text, path, option={})
@@ -17,5 +17,8 @@ module ApplicationHelper
   def current_page?(controller)
     controller = 'entrys' if controller = '/'
     controller.include?(@controller)
+  end
+  def user_nav_bar
+    render partial: 'shared/user_nav_bar' unless current_page?('entrys')
   end
 end
