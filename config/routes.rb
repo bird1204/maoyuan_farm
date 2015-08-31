@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :steps, only: [:index]
   resources :direct_sellings, only: [:show]
   resources :products, only: [:index, :show]
+  resources :orders, only: [:new, :create]
+  resources :carts, only: [:index, :new]
+  resources :tracking_lists, only: [:index]
 
   get '/users' => 'products#index'
   get '/users/sign_out' => 'entrys#index'

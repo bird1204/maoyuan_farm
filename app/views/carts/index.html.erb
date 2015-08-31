@@ -1,0 +1,67 @@
+<!-- Main -->
+<div id="main" class="wrapper style4">
+  <!-- Content -->
+  <div id="content" class="container">
+    <section>
+      <%= user_nav_bar%>
+      <%= render partial: 'shared/breadcomb', locals: {path: @path}%>
+      <ol class="progress">
+        <li class="is-active" data-step="1">
+          挑選商品
+        </li>
+        <li data-step="2">
+          填寫資料
+        </li>
+        <li data-step="3" class="progress__last">
+          完成
+        </li>
+      </ol>
+      <header class="major">
+        <span class="byline"></span>
+        <h2>購物車</h2>
+        <%=hello_message%><br>
+        <%=cart_message @cart%>
+        <span class="byline"><%=cart_message @cart%></span>
+      </header>
+      <table class="cart-table">
+        <tr>
+          <th><input type="checkbox" name="item_all" value="item_all"></th>
+          <th>圖片</th>
+          <th>商品</th>
+          <th>庫存</th>
+          <th>單價</th>
+          <th>數量</th>
+          <th>小計</th>
+        </tr>
+        <%@cart.shopping_cart_items.each do |items|%>
+        <tr>
+          <td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
+          <td><%=image_tag '1700866_L.jpg'%></td>
+          <td data-th="商品"><%=items.item.name%></td>
+          <td data-th="庫存"><%=items.item.stock%></td>
+          <td data-th="單價">$ <%=items.item.price%></td>
+          <td data-th="數量">
+            <%=select_tag "product_amount", options_for_select(Array.new(10) { |index| index+1 }, @cart.quantity_for(items.item_id)), disabled: true%>
+          </td>
+          <td data-th="小計">$<%=@cart.subtotal_for(items.item_id)%></td>
+        </tr>
+        <%end%>
+      </table>
+      <select id="Delivery-select" name="f_s_means" class="form-control" title="尚未選擇運送方式" data-trigger="manual">
+        <option value="0" data-amount="-">選擇運送方式</option>
+        <option value="2" data-amount="0" data-mean="宅配" data-note="滿1500元,先匯款">宅配 (滿1500元,先匯款) NT$ 0 元</option>
+        <option value="3" data-amount="250" data-mean="貨運" data-note="未滿1500元,先匯款">貨運 (未滿1500元,先匯款) NT$ 250 元</option>
+        <option value="4" data-amount="100" data-mean="貨到付款" data-note="滿1500,貨到付款">貨到付款 (滿1500,貨到付款) NT$ 100 元</option>
+        <option value="50" data-amount="350" data-mean="貨到付款(未滿1500)" data-note="">貨到付款(未滿1500) NT$ 350 元</option>
+      </select>
+      <div class="alert alert-success">
+        <%=success_message @cart%>
+      </div>
+      <div class="bill">
+        <%=link_to '繼續購物', products_path%>｜
+        <%#=link_to '結帳', new_order_path, class: 'blue-d'%>
+        <a href="address.html"><button class="blue-d">結帳</button></a>
+      </div>
+    </section>
+  </div>
+</div>
