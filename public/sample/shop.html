@@ -69,10 +69,59 @@
 			input::-webkit-input-placeholder {
 				color: #999;
 			}
+
+			/* 購物車 */
+			.cart{
+				position: fixed;
+				z-index: 99;
+				right:30px;
+				bottom: 50px;
+				width: 80px;
+				height: 100px;
+				font-size: 14px;
+			}
+			.cart img{
+				max-width: 100%;
+				height: 80px;
+				overflow: hidden;
+				border-radius: 8px;
+				box-shadow: 0 0 10px #999;
+			}
+
+			.cart p i{
+				display: none;
+			}
+
+			@media (max-width: 855px) {
+				.cart{
+					position: fixed;
+					z-index: 99;
+					top: 44px;
+					width: 100%;
+					height: 44px;
+					font-size: 14px;
+					right: 0;
+					background-color: rgb(239,239,239);
+				}
+				.cart img{
+					display: none;
+				}
+				.cart p{
+					line-height: 44px;
+					text-align: center;
+				}
+
+				.cart p i{
+					display: inline-block;
+				}
+
+			}
+
 		</style>
 	</head>
 	<body>
-
+		<!-- cart button -->
+		<a href="cart.html" style="color:#333;"><div class="cart"><img src="images/cart_btn.jpg"><p><i class="fa fa-shopping-cart"></i> 購物車 <span style="color:#ff0000;">(99)</span></p></div></a>
 		<!-- Header Wrapper -->
 			<div class="wrapper style1">
 			
@@ -150,7 +199,7 @@
 								<div class="row">
 									<div class="4u">
 										<section>
-											<a href="shop_inner.html"><img src="images/1905940_L.jpg" class="feature image"></a>
+											<a href="shop_inner.html"><img src="images/1905940_L.jpg" class="feature image 12u"></a>
 											<header>
 												果樹品種
 											</header>
@@ -160,7 +209,7 @@
 										</section>
 									</div>																												<div class="4u">
 										<section>
-											<img src="images/1700866_L.jpg" class="feature image">
+											<img src="images/1700866_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -170,7 +219,7 @@
 										</section>
 									</div>										<div class="4u">
 										<section>
-											<img src="images/1905940_L.jpg" class="feature image">
+											<img src="images/1905940_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -192,7 +241,7 @@
 								<div class="row">
 									<div class="4u">
 										<section>
-											<img src="images/1905940_L.jpg" class="feature image">
+											<img src="images/1905940_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -202,7 +251,7 @@
 										</section>
 									</div>																												<div class="4u">
 										<section>
-											<img src="images/1700866_L.jpg" class="feature image">
+											<img src="images/1700866_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -212,7 +261,7 @@
 										</section>
 									</div>										<div class="4u">
 										<section>
-											<img src="images/1905940_L.jpg" class="feature image">
+											<img src="images/1905940_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -234,7 +283,7 @@
 								<div class="row">
 									<div class="4u">
 										<section>
-											<img src="images/1905940_L.jpg" class="feature image">
+											<img src="images/1905940_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -244,7 +293,7 @@
 										</section>
 									</div>																												<div class="4u">
 										<section>
-											<img src="images/1700866_L.jpg" class="feature image">
+											<img src="images/1700866_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
@@ -254,7 +303,7 @@
 										</section>
 									</div>										<div class="4u">
 										<section>
-											<img src="images/1905940_L.jpg" class="feature image">
+											<img src="images/1905940_L.jpg" class="feature image 12u">
 											<header>
 												果樹品種
 											</header>
