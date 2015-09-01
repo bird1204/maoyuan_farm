@@ -18,25 +18,26 @@
 						</div>
 						<div class="7u">
 							<section>
+								<%=form_tag new_cart_path, method: :GET do%>
+								<%=hidden_field_tag 'product_id', @product.id%>
 								<p style="font-size:14px; text-align:left; line-height:0;">
 									優惠價：<span style="color:#FF4400; font-size:1.5em;">$<%=@product.price%></span>
 									<div class="row">
 										<span class="6u" style="font-size:14px; text-align:left;">
 											數量：
-											<select id = "amount">
-												<%10.times do |amount|%>
-													<option value="<%=amount+1%>"><%=amount+1%></option>
-												<%end%>
-											</select>
+											<%=select_tag "product_amount", options_for_select(Array.new(10) { |index| index+1 }, 1)%>
 										</span>
 										<span class="6u" style="font-size:14px; text-align:left;">
 											庫存：<%=@product.stock%>
 										</span>
 									</div>
 									<br>
-									<button class="red-d"><i class="fa fa-shopping-cart"></i>放入購物車</button>
-									<button class="blue-d">加入追蹤清單</button>
+									<%= button_tag(type: "submit", class: "red-d") do %>
+									    <i class='fa fa-shopping-cart'></i>放入購物車
+									<% end %>
+									<%=link_to '加入追蹤清單', tracking_lists_path, class: 'blue-d'%>
 								</p>
+								<%end%>
 								<p style="font-size:14px; text-align:left;">
 									<br />
 									<strong>支付：</strong><br>匯款 / 轉帳、貨到付款<br>
