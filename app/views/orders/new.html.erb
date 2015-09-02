@@ -62,7 +62,7 @@
               <%=f.text_area :comment, placeholder: '備註*', class: 'form-control'%>
             </div>
           </div>
-          <button id="send" name="send" class="btn btn-block">重設</button>
+          <%=link_to '重設', '', class: 'btn btn-block', id: 'reset', disabled: :true%>
           <%=f.button '送出', class: 'btn btn-block', id: 'send'%>
         <%end%>
       </div>
