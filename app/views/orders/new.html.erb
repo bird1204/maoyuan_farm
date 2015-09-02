@@ -1,0 +1,69 @@
+<!-- Main -->
+<div id="main" class="wrapper style4">
+  <!-- Content -->
+  <div id="content" class="container">
+    <section>
+      <%= user_nav_bar%>
+      <%= render partial: 'shared/breadcomb', locals: {path: @path}%>
+      <ol class="progress">
+        <li data-step="1">
+          挑選商品
+        </li>
+        <li class="is-active" data-step="2">
+          填寫資料
+        </li>
+        <li data-step="3" class="progress__last">
+          完成
+        </li>
+      </ol>
+      <header class="major">
+        <span class="byline"></span>
+        <h2>填寫付款方式及寄送資料</h2>
+              <%=hello_message%><br>
+              <%=cart_message @cart%>
+        <span class="byline">付款方式</span><br>
+        <div class="12u bank_account">
+          <div class="row">
+            <div class="left 6u">
+              <h3>一般寄送方式-請匯款至銀行帳戶</h3>
+              臣亮言：先帝創業未半，而中道崩殂。今天下三分，益州
+              疲弊，此誠危急存亡之秋也。然侍衛之臣，不懈於內；忠志之
+              士，忘身於外者，蓋追先帝之殊遇，欲報之於陛下也。誠宜開
+              張聖聽，以光先帝遺德，恢弘志士之氣；不宜妄自菲薄，引喻
+              失義，以塞忠諫之路也。宮中府中，俱為一體，陟罰臧否，不
+              宜異同。若有作姦犯科，及為忠善者，宜付有司，論其刑賞，
+              以昭陛下平明之治，不宜篇私，使內外異法也。
+            </div>
+            <div class="right 6u">
+              <h3>貨到付款</h3>
+              將會在您收件時與您收取貨物款項，不需事先匯款。
+            </div>
+          </div>
+        </div>
+        <span class="byline">寄送資料</span>
+        <%=form_for @order, class: 'form-horizontal', role: 'form' do |f|%>
+          <div class="form-group">
+            <div class="12u">
+              <%=f.text_field :receiver, placeholder: '收件者姓名*', class: 'form-control'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="12u">
+              <%=f.text_field :phone, placeholder: '聯絡電話*', class: 'form-control'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="12u">
+              <%=f.text_field :address, placeholder: '地址*', class: 'form-control'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%=f.text_area :comment, placeholder: '備註*', class: 'form-control'%>
+            </div>
+          </div>
+          <button id="send" name="send" class="btn btn-block">重設</button>
+          <%=f.button '送出', class: 'btn btn-block', id: 'send'%>
+        <%end%>
+      </div>
+    </div>

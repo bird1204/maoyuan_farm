@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831145458) do
+ActiveRecord::Schema.define(version: 20150902143415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,9 +84,18 @@ ActiveRecord::Schema.define(version: 20150831145458) do
   add_index "news", ["category"], name: "index_news_on_category", using: :btree
 
   create_table "order_details", force: :cascade do |t|
+    t.integer  "order_id",   null: false
+    t.integer  "product_id", null: false
+    t.integer  "quantity"
+    t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "order_details", ["amount"], name: "index_order_details_on_amount", using: :btree
+  add_index "order_details", ["order_id"], name: "index_order_details_on_order_id", using: :btree
+  add_index "order_details", ["product_id"], name: "index_order_details_on_product_id", using: :btree
+  add_index "order_details", ["quantity"], name: "index_order_details_on_quantity", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at",        null: false
@@ -97,6 +106,7 @@ ActiveRecord::Schema.define(version: 20150831145458) do
     t.integer  "amount",            null: false
     t.text     "comment"
     t.integer  "payment_method_id"
+    t.integer  "shipping_cost"
   end
 
   create_table "payment_methods", force: :cascade do |t|

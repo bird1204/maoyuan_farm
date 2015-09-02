@@ -4,7 +4,7 @@ module ProductsHelper
   end
 
   def user_nav_bar_in_product(index)
-    render partial: 'shared/user_nav_bar' unless current_page?('entrys') if index == 0
+    render partial: 'shop_nav_bar', locals: {cart: current_user.cart} unless current_page?('entrys') if index == 0
   end
 
   def header_message(data, class_name, style, index)

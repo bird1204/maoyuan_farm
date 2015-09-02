@@ -19,8 +19,6 @@
       <header class="major">
         <span class="byline"></span>
         <h2>購物車</h2>
-        <%=hello_message%><br>
-        <%=cart_message @cart%>
         <span class="byline"><%=cart_message @cart%></span>
       </header>
       <table class="cart-table">
@@ -59,8 +57,9 @@
       </div>
       <div class="bill">
         <%=link_to '繼續購物', products_path%>｜
-        <%#=link_to '結帳', new_order_path, class: 'blue-d'%>
-        <a href="address.html"><button class="blue-d">結帳</button></a>
+        <%=link_to new_order_path do%>
+        <button class="blue-d">結帳</button>
+        <%end%>
       </div>
     </section>
   </div>
