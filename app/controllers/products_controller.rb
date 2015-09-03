@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = []
-    @categories.each { |category| @products << Product.where(category_id: category.id) }
+    @categories.each { |category| @products << category.products }
     if params[:type]
       @products.clear
       @products << Product.where(category_id: params[:type])

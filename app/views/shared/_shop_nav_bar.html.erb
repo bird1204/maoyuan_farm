@@ -1,0 +1,6 @@
+<div class="12u user_nav_bar">
+    <i class="fa fa-sign-out"></i> <%= link_to "登出", destroy_user_session_path, method: :delete %> |
+    <i class="fa fa-key"></i> <%= link_to('修改密碼', edit_registration_path(:user)) %> |
+    <i class="fa fa-star"><%=link_to '追蹤清單', tracking_lists_path%> </i> |
+    <i class="fa fa-shopping-cart"><%=link_to '購物車', carts_path%><span style="color:#ff0000;">（<%=cart.total_unique_items%>）</span></i> 
+</div>

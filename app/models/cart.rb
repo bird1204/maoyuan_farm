@@ -1,5 +1,6 @@
 class Cart < ActiveRecord::Base
   acts_as_shopping_cart_using :cart_item
+  validates :user_id, uniqueness: true
   belongs_to :user
   has_many :items, through: :shopping_cart_items, source_type: "Product"
   def tax_pct

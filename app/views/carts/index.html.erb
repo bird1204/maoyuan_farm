@@ -23,7 +23,7 @@
       </header>
       <table class="cart-table" id = 'carts'>
         <tr>
-          <th><input type="checkbox" id="all" value="all" onclick="check_all(this,'product')"></th>
+          <th><input type="checkbox" id="all" value="all"></th>
           <th>圖片</th>
           <th>商品</th>
           <th>庫存</th>
@@ -39,7 +39,7 @@
           <td data-th="庫存"><%=items.item.stock%></td>
           <td data-th="單價">$ <%=items.item.price%></td>
           <td data-th="數量">
-            <%=select_tag "product_amount", options_for_select(Array.new(10) { |index| index+1 }, @cart.quantity_for(items.item_id)), disabled: true%>
+            <%=select_tag "#{items.item_id}_quantity", options_for_select(Array.new(10) { |index| index+1 }, @cart.quantity_for(items.item_id))%>
           </td>
           <td data-th="小計">$<%=@cart.subtotal_for(items.item_id)%></td>
         </tr>
@@ -67,3 +67,15 @@
     </section>
   </div>
 </div>
+<script>
+  // $('select').on( "change", function(){
+  //   $.ajax({
+  //     url: "/carts/1",
+  //     method: "PUT",
+  //     data: {product : {id : this.id.split('_')[0], product_amount : this.value} },
+  //     success: function(data){
+  //       $('#carts').html(data);
+  //     }
+  //   });
+  // })
+</script>
