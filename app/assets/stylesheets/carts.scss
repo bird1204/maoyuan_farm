@@ -180,3 +180,17 @@
   color: #FFF;
   background: #3498DB;
 }
+
+      /* 刪除按鈕 */
+      .cart_del_btn{
+        color:#ff0000; 
+        padding-left:13px; 
+        float: left;
+      }
+      @media (max-width: 480px) {
+        .cart_del_btn{
+          color:#ff0000; 
+          line-height: 60px;
+          float: none;
+        }
+      }

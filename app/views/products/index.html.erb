@@ -10,7 +10,7 @@
 			<div id="content" class="10u skel-cell-important">
 				<%@products.each_with_index do |products, index|%>
 				<section>
-					<%=shop_nav_bar%>
+					<%=user_nav_bar_in_product index%>
 					<%=breadcomb_bar index %>
 					<header class="major">
 						<%=header_title index %>

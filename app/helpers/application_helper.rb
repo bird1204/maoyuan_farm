@@ -21,7 +21,4 @@ module ApplicationHelper
   def user_nav_bar
     render partial: 'shared/user_nav_bar' unless current_page?('entrys')
   end
-  def shop_nav_bar
-    render partial: 'shared/shop_nav_bar' if current_page?('products')
-  end
 end

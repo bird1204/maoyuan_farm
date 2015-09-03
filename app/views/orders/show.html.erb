@@ -1,0 +1,81 @@
+<!-- Main -->
+<div id="main" class="wrapper style4">
+  <!-- Content -->
+  <div id="content" class="container">
+    <section>
+      <%= user_nav_bar%>
+      <%= render partial: 'shared/breadcomb', locals: {path: @path}%>
+      <ol class="progress">
+        <li data-step="1">
+          挑選商品
+        </li>
+        <li data-step="2">
+          填寫資料
+        </li>
+        <li data-step="3" class="progress__last is-active">
+          完成
+        </li>
+      </ol>
+      <header class="major">
+        <span class="byline"></span>
+        <h2>訂購成功</h2>
+      </header>
+      
+      <div id="jumboton" class="12u">
+        <div class="row">
+          <div class="4u">
+            <%=image_tag 'success.png', style: 'max-width:100%'%>
+          </div>
+          <div class="4u">
+            <font color="#aaaaaa"><h3>您已完成訂購程序!</h3></font><br>
+            顧客/公司寶號：<%=@order.receiver%><br>
+            單號：<%=@order.id%><br>
+            下單時間：<%=@order.created_at%><p></p><p>
+            注意事項：<br>
+            1.注意注意注意注意注意注意注意<br>
+            2.注意注意注意注意注意注意注意<br>
+          </p><table width="100%" class="cart-table">
+          <tbody><tr>
+            <th  data-th="商品">商品</th>
+            <th  data-th="庫存">庫存</th>
+            <th  data-th="數量">數量</th>
+            <th  data-th="單項小計">單項小計</th>
+          </tr>
+          <%@order.order_details.includes(:product).each do |record|%>
+          <tr>
+            <td data-th="商品"><%=record.product.name%></td>
+            <td data-th="庫存"><%=record.product.stock%></td>
+            <td data-th="單價">$ <%=record.product.price%></td>
+            <td data-th="數量"><%=record.quantity%></td>
+          </tr>
+          <%end%>
+        </tbody></table>
+        您選擇的是一般付款，運費：0，共計$<%=@order.amount%>元正。
+        
+      </div>
+      <div class="4u">
+        <font size="2" color="#666666">總計：</font><br>
+        <p style="font-size:80px; margin:0;">$<%=@order.amount%></p>
+        <!--一般寄送方式-->
+        <p>請您在三天之內將總額匯款至台北富邦銀行（012)<br>
+          帳戶：34567890<br>
+          戶名：茂發花果園<br>
+          <br>
+          匯款後請將您的匯款資料，以電話或傳真至：<br>
+          (01)2345678<br>
+          或是透過<br>
+          line帳號：1234567<br>
+          電子信箱：n0975806638@gmail.com<br>
+        我們將會盡快將您的商品寄出。</p>
+        <!--貨到付款
+        <p>您好！您選擇的是貨到付款，寄出後將寄出電子郵件通知您寄出。<br>
+          請您準備以上金額，並交付給快遞人員，即完成交易。
+        </p>
+        -->
+      </div>
+    </div>
+  </div>
+  
+</section>
+</div>
+</div>
