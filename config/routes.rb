@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :orders, only: [:new, :create, :show]
   resources :carts, only: [:index, :new, :destroy, :update]
-  resources :tracking_lists, only: [:index]
+  resources :tracking_lists, only: [:index, :create, :destroy]
 
   get '/users' => 'products#index'
   get '/users/sign_out' => 'entrys#index'

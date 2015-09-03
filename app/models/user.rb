@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_one :cart
+  has_many :tracking_lists
+  has_many :tracking_products, through: :tracking_lists
 end

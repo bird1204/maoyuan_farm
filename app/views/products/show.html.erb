@@ -35,11 +35,11 @@
 									<%= button_tag(type: "submit", class: "red-d") do %>
 									    <i class='fa fa-shopping-cart'></i>放入購物車
 									<% end %>
-									<%=link_to tracking_lists_path do %>
+									<%end%>
+									<%=button_to tracking_lists_path(product_id: @product) do %>
 										<button class='blue-d'>加入追蹤清單</button>
 									<%end%>
 								</p>
-								<%end%>
 								<p style="font-size:14px; text-align:left;">
 									<br />
 									<strong>支付：</strong><br>匯款 / 轉帳、貨到付款<br>

@@ -13,8 +13,11 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    params[:product_ids].each do |id|
+    if params[:product_id].present?
+      id = params[:product_id].to_i
       @cart.remove(@cart.items.find(id), @cart.shopping_cart_items.find_by_item_id(id).quantity)
+    else
+      @cart.clear
     end
 
     respond_to do |format|
