@@ -1,6 +1,9 @@
-  $('#all').click(function(){
-    $('input:checkbox').prop('checked', this.checked);  
-  })
+
+    function check_all(obj,cName) 
+    { 
+        var checkboxs = document.getElementsByName(cName); 
+        for(var i=0;i<checkboxs.length;i++){checkboxs[i].checked = obj.checked;} 
+    } 
   $(document).on('click','#del',function(){
     var product_ids = [];
       $('input:checked').each(function() {
