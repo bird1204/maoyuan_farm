@@ -35,7 +35,9 @@
 									<%= button_tag(type: "submit", class: "red-d") do %>
 									    <i class='fa fa-shopping-cart'></i>放入購物車
 									<% end %>
-									<%=link_to '加入追蹤清單', tracking_lists_path, class: 'blue-d'%>
+									<%=link_to tracking_lists_path do %>
+										<button class='blue-d'>加入追蹤清單</button>
+									<%end%>
 								</p>
 								<%end%>
 								<p style="font-size:14px; text-align:left;">

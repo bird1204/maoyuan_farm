@@ -1,0 +1,34 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).on 'click', '#all', ->
+  $('input:checkbox').prop 'checked', @checked
+  return
+
+$(document).on 'click', '#del', ->
+  product_ids = []
+  $('input:checked').each ->
+    if @value != 'all'
+      product_ids.push $(this).val()
+    return
+  $.ajax
+    url: '/carts/1'
+    type: 'DELETE'
+    data: { product_ids: product_ids }
+    success: (data) ->
+      $('#carts').html data
+      return
+  return
+
+$(document).on 'change', 'select', ->
+  $.ajax
+    url: '/carts/1'
+    method: 'PUT'
+    data: product:
+      id: @id.split('_')[0]
+      product_amount: @value
+    success: (data) ->
+      $('#carts').html data
+      return
+  return

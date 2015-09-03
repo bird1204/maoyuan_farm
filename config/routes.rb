@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :direct_sellings, only: [:show]
   resources :products, only: [:index, :show]
   resources :orders, only: [:new, :create, :show]
-  resources :carts, only: [:index, :new]
+  resources :carts, only: [:index, :new, :destroy, :update]
   resources :tracking_lists, only: [:index]
 
   get '/users' => 'products#index'
