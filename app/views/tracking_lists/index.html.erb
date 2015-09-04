@@ -18,14 +18,16 @@
           <th>單價</th>
           <th>加入日期</th>
         </tr>
+        <%@tracking_lists.each do |lists|%>
         <tr>
           <td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
           <td><%=image_tag '1700866_L.jpg'%></td>
-          <td data-th="商品">熱銷商品標題1</td>
-          <td data-th="庫存">尚有庫存</td>
-          <td data-th="單價">$ 123</td>
-          <td data-th="加入日期">2015/06/25</td>
+          <td data-th="商品"><%=lists.product.name%></td>
+          <td data-th="庫存"><%=lists.product.stock%></td>
+          <td data-th="單價">$ <%=lists.product.price%></td>
+          <td data-th="加入日期"><%=lists.created_at%></td>
         </tr>
+        <%end%>
       </table>
       <div class="row">
         <div class="6u del">
@@ -36,7 +38,7 @@
         </div>
       </div>
       <!--頁碼-->
-      <%=paginate_bar @lists%>
+      <%=paginate_bar @tracking_lists%>
     </section>
   </div>
 </div>
