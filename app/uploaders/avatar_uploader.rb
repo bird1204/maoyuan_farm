@@ -6,8 +6,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :aws
-  # storage :fog
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -17,11 +16,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url(*args)
-    ActionController::Base.helpers.asset_path('images/1700866_L.jpg')
+    ActionController::Base.helpers.asset_path('1700866_L.jpg')
   end
 
   # Process files as they are uploaded:
-  process :scale => [390, 293]
+  process :resize_to_fit => [390, 293]
   #
   # def scale(width, height)
   #   # do something
@@ -41,7 +40,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    "something.jpg" if original_filename
+    SecureRandom.hex(6) if original_filename
   end
 
 end

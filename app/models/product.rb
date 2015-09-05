@@ -4,4 +4,8 @@ class Product < ActiveRecord::Base
   has_many :tracking_lists
   # self.per_page = 3
   mount_uploader :avatar, AvatarUploader
+
+  def image
+    avatar.url
+  end
 end

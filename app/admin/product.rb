@@ -1,6 +1,6 @@
 ActiveAdmin.register Product do
   # before_filter :skip_sidebar!
-  permit_params :name, :description, :price, :stock, :comment, :category_id
+  permit_params :name, :description, :price, :stock, :comment, :category_id, :avatar
   includes :category
   
   menu parent: "product megt."
@@ -30,6 +30,7 @@ ActiveAdmin.register Product do
       f.input :price, as: :number, :in => 1..10
       f.input :stock, as: :number, :in => 1..10
       f.input :comment
+      f.input :avatar
     end
     f.actions
   end 
