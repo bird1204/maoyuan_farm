@@ -36,8 +36,8 @@
 									    <i class='fa fa-shopping-cart'></i>放入購物車
 									<% end %>
 									<%end%>
-									<%=button_to tracking_lists_path(product_id: @product) do %>
-										<button class='blue-d'>加入追蹤清單</button>
+									<%=button_to tracking_lists_path(product_id: @product),:class => 'blue-d' do %>
+										加入追蹤清單
 									<%end%>
 								</p>
 								<p style="font-size:14px; text-align:left;">
