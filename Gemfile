@@ -36,7 +36,8 @@ gem 'will_paginate'
 gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem 'activeadmin', github: 'activeadmin'
 gem 'rails-i18n', '~> 4.0.0'
-gem 'carrierwave'
+# gem 'carrierwave'
+gem 'carrierwave-aws'
 gem "mini_magick"
 
 group :development, :test do

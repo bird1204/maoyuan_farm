@@ -3,4 +3,5 @@ class Product < ActiveRecord::Base
   has_many :order_details
   has_many :tracking_lists
   # self.per_page = 3
+  mount_uploader :avatar, AvatarUploader
 end

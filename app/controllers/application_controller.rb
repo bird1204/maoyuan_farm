@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :active_page
   before_action :breadcomb
   def active_page
-    p request.env['PATH_INFO']
+    p "enter path : #{request.env['PATH_INFO']}"
     path = Rails.application.routes.recognize_path(request.env['PATH_INFO'], method: request.method.to_sym)
     @current_controller = path[:controller]
     @current_action = path[:action]
