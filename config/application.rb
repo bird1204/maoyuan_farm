@@ -24,10 +24,5 @@ module MaoyuanFarm
     config.service_mails = %w(g8071107@gmail.com bird1204@gmail.com keeliker@gmail.com n0975806638@gmail.com)
     
     config.i18n.available_locales = ["zh-TW", :en]
-
-    config.aws_access_key_id = 'aws_access_key_id'
-    config.aws_secret_access_key = 'aws_secret_access_key'
-    config.aws_region = 'aws_region'
-    config.s3_bucket_name = 'S3_BUCKET_NAME'
   end
 end
