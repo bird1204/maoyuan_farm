@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :tracking_lists, only: [:index, :create, :destroy]
 
   get '/users' => 'products#index'
-  get '/users/sign_out' => 'entrys#index'
+  post '/users/sign_out' => 'entrys#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
