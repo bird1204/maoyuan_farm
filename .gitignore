@@ -17,6 +17,5 @@
 /tmp
 public/assets
 config/database.yml
-config/aws.yml
-config/initializers/config.rb
+config/app_environment_variables.rb
 public/assets/*.*

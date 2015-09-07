@@ -1,6 +1,10 @@
 require 'yaml'
 CarrierWave.configure do |config|
-  # aws = YAML.load_file("#{Rails.root.to_s}/config/aws.yml")
+  p ENV['ACCESS_KEY_ID']
+  p ENV['ACCESS_KEY_ID']
+  p ENV['ACCESS_KEY_ID']
+
+  aws = YAML.load_file("#{Rails.root.to_s}/config/aws.yml")
   config.fog_provider = 'fog/aws'                        # required
   config.fog_credentials = {
     provider:              'AWS',                        # required
