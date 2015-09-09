@@ -12,6 +12,6 @@
  *
  *= require common/skel
  *= require common/style
- *= require font-awesome.min
+ *= require font.min
  *= require_self
  */

@@ -9,4 +9,5 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile << [/^[a-z0-9]\w+.(css|js|woff|eot|svg|ttf|scss)$/]
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|css|js|scss)\z/
+# Rails.application.config.assets.precompile += [/^[a-z0-9]\w+.(svg|eot|woff|ttf|css|js|scss)$/]
