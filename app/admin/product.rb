@@ -19,7 +19,7 @@ ActiveAdmin.register Product do
   end
 
   index  as: :grid do |product|
-    link_to image_tag('1700866_L.jpg'), admin_product_path(product)
+    link_to image_tag(product.icon_url), admin_product_path(product)
   end
 
   show do
