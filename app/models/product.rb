@@ -10,4 +10,14 @@ class Product < ActiveRecord::Base
   def icon_url
     avatar.url
   end
+
+  def stock! num
+    if stock > num
+      update_attributes(stock: stock - num)
+    else
+      fail "#{name}沒有足夠的庫存"
+    end
+  end
+
+
 end

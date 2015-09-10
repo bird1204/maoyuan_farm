@@ -14,7 +14,7 @@
 					</header>
 					<div class="row">
 						<div class="5u">
-							<%=image_tag @product.image, class: "feature image", style: "max-width:100%;" %>
+							<%=image_tag @product.icon_url, class: "feature image", style: "max-width:100%;" %>
 						</div>
 						<div class="7u">
 							<section>
@@ -58,6 +58,10 @@
 								</header>
 								<p style="text-align:left;">
 									<%=@product.description%>
+									<br>
+									<%@product.images.each do |im|%>
+										<%=image_tag im.image_url%>
+									<%end%>
 									<br />
 									即日起<br />
 									滿2000元『匯款者』，免運！<br />

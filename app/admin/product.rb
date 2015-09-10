@@ -31,9 +31,14 @@ ActiveAdmin.register Product do
       row :description
       row :stock
       row :comment
-      row :avatar do |product|
-        product.icon_url
+      row '顯示圖' do |product|
+        image_tag(product.icon_url)
       end
+
+      table_for product.images do
+        column('產品圖') { |im| image_tag(im.image_url) }
+      end
+
     end
   end
 
@@ -45,12 +50,13 @@ ActiveAdmin.register Product do
       f.input :price, as: :number, :in => 1..10
       f.input :stock, as: :number, :in => 1..10
       f.input :comment
-      f.inputs 'icon' do 
+      f.inputs '顯示圖' do 
         f.input :avatar, as: :file, hint: image_tag(f.object.icon_url)
-        # f.input :avatar_cache, as: :hidden 
+        f.input :avatar_cache, as: :hidden 
       end
       f.has_many :images do |ff|
         ff.input :avatar, as: :file, hint: image_tag(ff.object.image_url)
+        ff.input :avatar_cache, as: :hidden 
       end
     end
     f.actions
