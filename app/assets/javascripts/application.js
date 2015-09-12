@@ -13,9 +13,10 @@
 // = require jquery
 // = require jquery_ujs
 // = require turbolinks
-// = require skel.min
-// = require skel-layers.min
-// = require_tree .
+// = require ./common/skel.min
+// = require ./common/skel-layers.min
+// = require ./common/jquery.dropotron.min
+// = require ./common/init
 
 function clearFlash(){
   $('.flash_msg').slideUp();

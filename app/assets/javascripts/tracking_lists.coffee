@@ -11,3 +11,13 @@ $(document).on 'click', ':button[type="cart_del"]', ->
       $('.cart-table').html data
       return
   return
+
+$(document).on 'click', ':button[type="all_del"]', ->
+  console.log @type
+  $.ajax
+    url: '/tracking_lists/all'
+    method: 'DELETE'
+    success: (data) ->
+      $('.cart-table').html data
+      return
+  return

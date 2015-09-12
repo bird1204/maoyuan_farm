@@ -19,7 +19,7 @@
 						<div class="4u">
 							<section>
 								<%=link_to product_path(product) do%>
-								<%=image_tag '1905940_L.jpg', class: "feature image 12u"%>
+								<%=image_tag product.icon_url, class: "feature image 12u"%>
 								<%end%>
 								<header>
 									<%=product.name%>
