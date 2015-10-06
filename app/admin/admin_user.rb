@@ -1,8 +1,9 @@
 ActiveAdmin.register AdminUser do
   # before_filter :skip_sidebar!
   permit_params :email, :password, :password_confirmation
-  menu parent: "User megt."
-  index do
+  menu parent: "使用者管理", label: "管理者帳號"
+
+  index title: '管理員' do
     selectable_column
     id_column
     column :email

@@ -3,34 +3,33 @@ ActiveAdmin.register Product do
   permit_params :name, :description, :price, :stock, :comment, :category_id, :avatar, images_attributes: [:id, :avatar, :product_id]
   includes :category
   
-  menu parent: "product megt."
-  index do 
+  menu parent: "商品管理", label: "商品"
+
+  index title: '商品' do 
     selectable_column
     id_column
-    column :name
-    column :category_id do |product|
-      product.category.name
-    end
-    column :description
-    column :stock
-    column :comment
-    column :updated_at
+    column ('名稱') { |product| product.name}
+    column ('種類') { |product| product.category.name}
+    column ('說明') { |product| product.description}
+    column ('價格') { |product| product.price}
+    column ('庫存數量') { |product| product.stock}
+    column ('備註') { |product| product.comment}
+    column ('更新日期') { |product| product.updated_at}
     actions
   end
 
-  index  as: :grid do |product|
+  index title: '商品', as: :grid do |product|
     link_to image_tag(product.icon_url), admin_product_path(product)
   end
 
   show do
     attributes_table do
-      row :name
-      row :category_id do |product|
-        product.category.name
-      end
-      row :description
-      row :stock
-      row :comment
+      row ('名稱') { |product| product.name}
+      row ('種類') { |product| product.category.name}
+      row ('說明') { |product| product.description}
+      row ('價格') { |product| product.price}
+      row ('庫存數量') { |product| product.stock}
+      row ('備註') { |product| product.comment}
       row '顯示圖' do |product|
         image_tag(product.icon_url)
       end
@@ -43,20 +42,20 @@ ActiveAdmin.register Product do
   end
 
   form(html: { multipart: true }) do |f|
-    f.inputs "Product Details" do
-      f.input :name
-      f.input :category_id, as: :radio, collection: Category.all.collect { |c| [c.name, c.id]}
-      f.input :description
-      f.input :price, as: :number, :in => 1..10
-      f.input :stock, as: :number, :in => 1..10
-      f.input :comment
+    f.inputs "商品" do
+      f.input :name, label: '名稱'
+      f.input :category_id, label: '種類', as: :radio, collection: Category.all.collect { |c| [c.name, c.id]}
+      f.input :description, label: '說明'
+      f.input :price, as: :number, :in => 1..10, label: '價格'
+      f.input :stock, as: :number, :in => 1..10, label: '庫存'
+      f.input :comment, label: '備註'
       f.inputs '顯示圖' do 
-        f.input :avatar, as: :file, hint: image_tag(f.object.icon_url)
-        f.input :avatar_cache, as: :hidden 
+        f.input :avatar, as: :file, hint: image_tag(f.object.icon_url), label: '顯示圖'
+        f.input :avatar_cache, as: :hidden
       end
-      f.has_many :images do |ff|
-        ff.input :avatar, as: :file, hint: image_tag(ff.object.image_url)
-        ff.input :avatar_cache, as: :hidden 
+      f.has_many :images, label: '產品圖' do |ff|
+        ff.input :avatar, as: :file, hint: image_tag(ff.object.image_url), label: '產品圖'
+        ff.input :avatar_cache, as: :hidden
       end
     end
     f.actions
