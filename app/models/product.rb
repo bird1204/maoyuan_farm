@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  belongs_to :category
+  belongs_to :category, counter_cache: true
   has_many :order_details
   has_many :tracking_lists
   has_many :images, :inverse_of => :product, :dependent => :destroy
