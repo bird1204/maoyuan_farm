@@ -17,6 +17,7 @@ end
 index do
   selectable_column
   id_column
+  column ('下單者') { |order| order.user.email }
   column ('收件者') { |order| order.receiver }
   column ('聯絡電話') { |order| order.phone }
   column ('地址') { |order| order.address }
@@ -33,7 +34,7 @@ end
 show do 
   attributes_table do
     row :id
-    row ('建立日期') { |order| order.created_at }
+    row ('下單者') { |order| order.user.email }
     row ('收件者') { |order| order.receiver }
     row ('聯絡電話') { |order| order.phone }
     row ('地址') { |order| order.address }
@@ -42,11 +43,7 @@ show do
     row ('付款方式') do |order|
       order.payment_method
     end
-
-    # table_for order.order_details do
-      # column('2312', :product_id)
-      # column :product_id { |od| od.product.name }
-    # end    
+    row ('建立日期') { |order| order.created_at }  
 
     table_for order.order_details do
       column ('產品名稱') { |od| od.product.name }
