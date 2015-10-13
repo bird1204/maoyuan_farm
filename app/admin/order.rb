@@ -1,24 +1,40 @@
 ActiveAdmin.register Order do
+menu parent: "訂單管理", label: '訂單'
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
+form do |f|
+  f.inputs "訂單" do
+    f.input :receiver, label: '收件者'
+    f.input :phone, label: '電話'
+    f.input :address, label: '地址'
+    f.input :amount, label: '金額'
+    f.input :shipping_cost, label: '運費'
+    f.input :payment_method, label: '付款方式'
+    f.input :comment, label: '備註'
+  end
+  f.actions
+end
 
-menu parent: "Order megt."
+index do
+  selectable_column
+  id_column
+  column ('下單者') { |order| order.user.email }
+  column ('收件者') { |order| order.receiver }
+  column ('聯絡電話') { |order| order.phone }
+  column ('地址') { |order| order.address }
+  column ('價格') { |order| order.amount }
+  column ('運費') { |order| order.shipping_cost }
+  column ('付款方式') do |order|
+    order.payment_method.name
+  end
+  column ('建立日期') { |order| order.created_at }
+  actions
+end
+
 
 show do 
   attributes_table do
     row :id
-    row ('建立日期') { |order| order.created_at }
+    row ('下單者') { |order| order.user.email }
     row ('收件者') { |order| order.receiver }
     row ('聯絡電話') { |order| order.phone }
     row ('地址') { |order| order.address }
@@ -27,11 +43,7 @@ show do
     row ('付款方式') do |order|
       order.payment_method
     end
-
-    # table_for order.order_details do
-      # column('2312', :product_id)
-      # column :product_id { |od| od.product.name }
-    # end    
+    row ('建立日期') { |order| order.created_at }  
 
     table_for order.order_details do
       column ('產品名稱') { |od| od.product.name }
@@ -40,6 +52,7 @@ show do
     end
   end
 end
+
 
 
 end

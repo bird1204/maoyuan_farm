@@ -12,7 +12,7 @@
     <ul class="default">
       <h3>商品分類</h3>
       <%categories.each do |category|%>
-        <li><%=link_to category.name, products_path(type: category.id)%>(<%=category.products.count%>)</li>
+        <li><%=link_to category.name, products_path(type: category.id)%>(<%=category.products.size%>)</li>
       <%end%>
     </ul>
   </section>

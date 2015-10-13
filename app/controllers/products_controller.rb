@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   private
 
   def init_category
-    @categories = Category.select('id, name')
+    @categories = Category.select('id, name, products_count')
+    @categories = @categories.includes(:products) unless params[:type]
   end
 end
