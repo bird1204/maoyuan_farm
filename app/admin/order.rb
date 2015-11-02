@@ -1,5 +1,6 @@
 ActiveAdmin.register Order do
 menu parent: "訂單管理", label: '訂單'
+permit_params :receiver, :phone, :address, :amount, :shipping_cost, :payment_method, :comment
 
 form do |f|
   f.inputs "訂單" do

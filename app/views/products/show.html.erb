@@ -7,7 +7,7 @@
 			<!-- Content -->
 			<div id="content" class="10u skel-cell-important">
 				<section>
-					<%= user_nav_bar_in_product 0%>
+					<%#= user_nav_bar_in_product 0%>
 					<%= render partial: 'shared/breadcomb', locals: {path: @path}%>
 					<header class="major">
 						<h2><%=@product.name%></h2>
@@ -23,22 +23,22 @@
 								<p style="font-size:14px; text-align:left; line-height:0;">
 									優惠價：<span style="color:#FF4400; font-size:1.5em;">$<%=@product.price%></span>
 									<div class="row">
-										<span class="6u" style="font-size:14px; text-align:left;">
+										<!-- <span class="6u" style="font-size:14px; text-align:left;">
 											數量：
-											<%=select_tag "product_amount", options_for_select(Array.new(10) { |index| index+1 }, 1)%>
-										</span>
+											<%#=select_tag "product_amount", options_for_select(Array.new(10) { |index| index+1 }, 1)%>
+										</span> -->
 										<span class="6u" style="font-size:14px; text-align:left;">
 											庫存：<%=@product.stock%>
 										</span>
 									</div>
 									<br>
-									<%= button_tag(type: "submit", class: "red-d") do %>
+									<!-- <%#= button_tag(type: "submit", class: "red-d") do %>
 									    <i class='fa fa-shopping-cart'></i>放入購物車
-									<% end %>
+									<%# end %> -->
 									<%end%>
-									<%=button_to tracking_lists_path(product_id: @product),:class => 'blue-d' do %>
-										加入追蹤清單
-									<%end%>
+									<%#=button_to tracking_lists_path(product_id: @product),:class => 'blue-d' do %>
+										<!-- 加入追蹤清單 -->
+									<%#end%>
 								</p>
 								<p style="font-size:14px; text-align:left;">
 									<br />

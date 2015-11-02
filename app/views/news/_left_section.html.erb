@@ -6,7 +6,7 @@
     </header>
     <ul class="default">
       <%categories.each do |category, count|%>
-      <li><%=link_to category, news_index_path(type: category)%>(<%=count%>)</li>
+      <li><%=link_to category.name, news_index_path(type: category)%>(<%=count%>)</li>
       <%end%>
     </ul>
   </section>

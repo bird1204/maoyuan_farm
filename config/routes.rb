@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'entrys#index'
+  root 'products#index'
   resources :abouts, only: [:index]
   resources :services, only: [:index, :create]
-  resources :catalogs, only: [:index]
+  # resources :catalogs, only: [:index]
   resources :news, only: [:index, :show]
   resources :contacts, only: [:index]
   resources :steps, only: [:index]
