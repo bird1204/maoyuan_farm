@@ -5,16 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first) 
+
+p 'create news category data ---> START'
+data = [{name: '新品上市', description: '新品上市'},
+        {name: '特價資訊', description: '特價資訊'},
+        {name: '營業訊息', description: '營業訊息'},
+        {name: '站務公告', description: '站務公告'}]
+NewsCategory.create(data)
+p 'create news data ---> DONE'
+
+
 p 'create news data ---> START'
-data = [{title: '屁孩機車', content: '屁孩mafia的機車', category: '新品上市'},
-        {title: '屁孩汽車', content: '屁孩mafia的汽車', category: '新品上市'},
-        {title: '屁孩電腦', content: '屁孩mafia的電腦', category: '特價資訊'},
-        {title: '屁孩單車', content: '屁孩mafia的單車', category: '特價資訊'},
-        {title: '屁孩開業', content: '屁孩mafia即起營業', category: '營業訊息'},
-        {title: '屁孩開業', content: '屁孩趴特萬即起營業', category: '營業訊息'},
-        {title: 'mafia board', content: 'mafia 沒有公告可以說', category: '站務公告'},
-        {title: '趴特萬 board', content: '趴特萬 沒有公告可以說', category: '站務公告'},
-        {title: 'bird board', content: 'bird 有公告但不想跟你說', category: '站務公告'}]
+data = [{title: '屁孩機車', content: '屁孩mafia的機車', news_category_id: 1},
+        {title: '屁孩汽車', content: '屁孩mafia的汽車', news_category_id: 1},
+        {title: '屁孩電腦', content: '屁孩mafia的電腦', news_category_id: 2},
+        {title: '屁孩單車', content: '屁孩mafia的單車', news_category_id: 2},
+        {title: '屁孩開業', content: '屁孩mafia即起營業', news_category_id: 3},
+        {title: '屁孩開業', content: '屁孩趴特萬即起營業', news_category_id: 3},
+        {title: 'mafia board', content: 'mafia 沒有公告可以說', news_category_id: 4},
+        {title: '趴特萬 board', content: '趴特萬 沒有公告可以說', news_category_id: 4},
+        {title: 'bird board', content: 'bird 有公告但不想跟你說', news_category_id: 4}]
 New.create(data)
 p 'create news data ---> DONE'
 
@@ -55,4 +65,10 @@ p 'create Cart data ---> DONE'
 p 'create tracking_list data ---> START'
 TrackingList.create!(user_id: 1, product_id: 1)
 p 'create tracking_list data ---> DONE'
+
+p 'create Cart data ---> START'
+Cart.create!(user_id: 1)
+p 'create Cart data ---> DONE'
+
+
 
