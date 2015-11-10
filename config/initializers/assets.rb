@@ -12,5 +12,5 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|css|js|scss)\z/
 # Rails.application.config.assets.precompile += [/^[a-z0-9]\w+.(svg|eot|woff|ttf|css|js|scss)$/]
 Rails.application.config.assets.precompile += [/(^[^_\/]|\/[^_])[^\/]*(svg|eot|woff|ttf|js|scss)$/]
-Rails.application.config.assets.precompile += %w( common/* devise/* ie/* *.css )
+Rails.application.config.assets.precompile += %w( common/* devise/* ie/* products.css abouts.css services.css news.css contacts.css steps.css direct_sellings.css )
 Rails.application.config.assets.enabled = true 
