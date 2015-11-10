@@ -3,10 +3,12 @@ ActiveAdmin.register New do
   permit_params :title, :content, :news_category_id
   menu parent: "最新消息", label: "最新消息"
 
+
   form do |f|
     f.inputs "最新消息" do
       f.input :title, label: '標題'
       f.input :content, label: '內容'
+
       f.input :news_category_id, label: '新聞種類', as: :radio, collection: NewsCategory.all.collect { |c| [c.name, c.id]}
 
     end

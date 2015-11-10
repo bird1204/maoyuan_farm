@@ -58,6 +58,10 @@ p 'create User data ---> START'
 User.create!(email: 'maoyuan@example.com', password: 'password', password_confirmation: 'password')
 p 'create User data ---> DONE'
 
+p 'create Cart data ---> START'
+Cart.create!(user_id: 1)
+p 'create Cart data ---> DONE'
+
 p 'create tracking_list data ---> START'
 TrackingList.create!(user_id: 1, product_id: 1)
 p 'create tracking_list data ---> DONE'
