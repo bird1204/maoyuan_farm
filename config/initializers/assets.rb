@@ -11,4 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 # Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|css|js|scss)\z/
 # Rails.application.config.assets.precompile += [/^[a-z0-9]\w+.(svg|eot|woff|ttf|css|js|scss)$/]
-Rails.application.config.assets.precompile += [/(^[^_\/]|\/[^_])[^\/]*(svg|eot|woff|ttf|css|js|scss)$/]
+# Rails.application.config.assets.precompile += [/(^[^_\/]|\/[^_])[^\/]*(svg|eot|woff|ttf|css|js|scss)$/]
