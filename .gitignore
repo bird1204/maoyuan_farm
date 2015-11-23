@@ -17,3 +17,5 @@
 /tmp
 public/assets
 config/database.yml
+config/app_environment_variables.rb
+public/assets/*.*
