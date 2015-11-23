@@ -7,6 +7,7 @@
 			<!-- Content -->
 			<div id="content" class="10u skel-cell-important">
 				<section>
+					<%#= user_nav_bar%>
 					<%= render partial: 'shared/breadcomb', locals: {path: @path}%>
 					<header class="major">
 						<h2><%=@title%></h2>
@@ -21,5 +22,5 @@
 			</div>
 		</div>
 	</div>
-	<%=nav_bar @news%>
+	<%=paginate_bar @news%>
 </div>

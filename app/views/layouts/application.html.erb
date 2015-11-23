@@ -2,42 +2,51 @@
 <html>
   <head>
     <title>茂發花果園</title>
-    <%= stylesheet_link_tag    'application',params[:controller], media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', params[:controller], media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', params[:controller], media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="茂發花果園-位於九如，提供檸檬類、棗子類、芭樂類、芒果類、各類水果苗、花卉、草皮等商品，及專業的種植意見。" />
+    <meta name="keywords" content="屏東果苗,九如果苗,屏東草皮,屏東果樹,九如果樹" />
     <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
   </head>
-  <body class="<%='homepage' if @controller == 'entrys'%>">
+  <% if controller.controller_name == 'products' %>
+    <body class="<%='homepage' if @current_controller == 'entrys'%>" data-no-turbolink>
+  <% else %>
+    <body class="<%='homepage' if @current_controller == 'entrys'%>">
+  <% end %>
     <div class="wrapper style1">
       <!-- Header -->
       <div id="header">
         <div class="container">
           <!-- Logo -->
-          <h1><%=link_to '茂發花果園', root_path, id: 'logo' if @controller != 'entrys'%></h1>
+          <h1><%=logo_link_to '茂發花果園', root_path, id: 'logo' %></h1>
           <!-- Nav -->
           <nav id="nav">
             <ul>
-              <%if @controller == 'entrys'%>
-                <li class='active'><%=link_to '首頁', root_path%></li>
-              <%end%>
-              <li class="<%='active' if @controller == 'products'%>"><%=link_to '線上購物', products_path%></li>
-              <li class="<%='active' if @controller == 'abouts'%>"><%=link_to '關於茂發', abouts_path%></li>
-              <li class="<%='active' if @controller == 'services'%>"><%=link_to '線上服務', services_path%></li>
-              <li class="<%='active' if @controller == 'catalogs'%>"><%=link_to '線上型錄', catalogs_path%></li>
-              <li class="<%='active' if @controller == 'news'%>"><%=link_to '最新消息', news_index_path%></li>
-              <li class="<%='active' if @controller == 'contacts'%>"><%=link_to '聯絡我們', contacts_path%></li>
-              <li class="<%='active' if @controller == 'steps'%>"><%=link_to '購物流程', steps_path%></li>
-              <li class="<%='active' if @controller == 'direct_sellings'%>"><%=link_to '農友直銷', direct_selling_path(1)%></li>
+              <%=head_link_to '首頁', root_path %>
+              <%=active_link_to '線上購物', products_path %>
+              <%=active_link_to '關於茂發', abouts_path %>
+              <%=active_link_to '線上服務', services_path %>
+              <%#=active_link_to '線上型錄', catalogs_path %>
+              <%=active_link_to '最新消息', news_index_path %>
+              <%=active_link_to '聯絡我們', contacts_path %>
+              <%=active_link_to '購物流程', steps_path %>
+              <%=active_link_to '農友直銷', direct_selling_path(1) %>
             </ul>
           </nav>
         </div>
       </div>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    
+      <% flash.each do |name, msg| -%>
+        <div class="flash_msg">
+          <div class="notice-warning">
+            <div class="notice-close" onclick="clearFlash()">&#215;</div>
+            <%= content_tag :span, msg, class: name %>
+          </div>
+        </div>
+      <% end -%>
       <%= yield %>
       <!-- Footer -->
       <div id="footer">

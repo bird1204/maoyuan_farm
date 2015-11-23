@@ -8,6 +8,7 @@
 			<div id="content" class="10u skel-cell-important">
 				<%@products.each_with_index do |products, index|%>
 				<section>
+					<%#=user_nav_bar_in_product index%>
 					<%=breadcomb_bar index %>
 					<header class="major">
 						<%=header_title index %>
@@ -18,7 +19,7 @@
 						<div class="4u">
 							<section>
 								<%=link_to product_path(product) do%>
-								<%=image_tag '1905940_L.jpg', class: "feature image"%>
+								<%=image_tag product.icon_url, class: "feature image 12u"%>
 								<%end%>
 								<header>
 									<%=product.name%>
@@ -36,5 +37,5 @@
 	</section>
 </div>
 <!--頁碼-->
-	<%=nav_bar @products%>
+	<%=paginate_bar @products%>
 </div>

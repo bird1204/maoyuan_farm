@@ -1,0 +1,18 @@
+<tr>
+  <th><button type="all_del" name="commit" class="search"><i class="fa fa-exclamation-circle"></i> 全部刪除</button></th>
+  <th>圖片</th>
+  <th>商品</th>
+  <th>庫存</th>
+  <th>單價</th>
+  <th>加入日期</th>
+</tr>
+<%@tracking_lists.each do |lists|%>
+<tr>
+  <td data-th="選取"><button type="cart_del" id='<%="del_#{lists.product_id}"%>' class="search">刪除</button></td>
+  <td><%=image_tag '1700866_L.jpg'%></td>
+  <td data-th="商品"><%=lists.product.name%></td>
+  <td data-th="庫存"><%=lists.product.stock%></td>
+  <td data-th="單價">$ <%=lists.product.price%></td>
+  <td data-th="加入日期"><%=lists.created_at%></td>
+</tr>
+<%end%>

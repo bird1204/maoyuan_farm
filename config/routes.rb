@@ -1,18 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users #, controllers: { sessions: "users/sessions" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'entrys#index'
+  root 'products#index'
   resources :abouts, only: [:index]
-  resources :services, only: [:index]
-  resources :catalogs, only: [:index]
+  resources :services, only: [:index, :create]
+  # resources :catalogs, only: [:index]
   resources :news, only: [:index, :show]
   resources :contacts, only: [:index]
   resources :steps, only: [:index]
   resources :direct_sellings, only: [:show]
   resources :products, only: [:index, :show]
+  resources :orders, only: [:new, :create, :show]
+  resources :carts, only: [:index, :new, :destroy, :update]
+  resources :tracking_lists, only: [:index, :create, :destroy]
+
+  get '/users' => 'products#index'
+  post '/users/sign_out' => 'entrys#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,36 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$(document).on 'click', ':button[type="all_del"]', ->
+  console.log @type
+  $.ajax
+    url: '/carts/1'
+    method: 'DELETE'
+    success: (data) ->
+      $('#carts').html data
+      return
+  return
+
+$(document).on 'click', ':button[type="cart_del"]', ->
+  console.log @type
+  $.ajax
+    url: '/carts/1'
+    method: 'DELETE'
+    data: product_id: @id.split('_')[1]
+    success: (data) ->
+      $('#carts').html data
+      return
+  return
+
+$(document).on 'change', 'select[type="quantity"]', ->
+  $.ajax
+    url: '/carts/1'
+    method: 'PUT'
+    data: product:
+      id: @id.split('_')[1]
+      product_amount: @value
+    success: (data) ->
+      $('#carts').html data
+      return
+  return

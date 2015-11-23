@@ -1,10 +1,11 @@
 require 'will_paginate/array'
 class ProductsController < ApplicationController
+  # before_action :authenticate_user!
   before_action :init_category
 
   def index
     @products = []
-    @categories.each { |category| @products << Product.where(category_id: category.id) }
+    @categories.each { |category| @products << category.products }
     if params[:type]
       @products.clear
       @products << Product.where(category_id: params[:type])
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
   private
 
   def init_category
-    @categories = Category.select('id, name')
+    @categories = Category.select('id, name, products_count')
+    @categories = @categories.includes(:products) unless params[:type]
   end
 end

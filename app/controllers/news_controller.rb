@@ -1,10 +1,14 @@
 class NewsController < ApplicationController
   before_action :init_category
   def index
-    @news = New.select('created_at, title, id')
-    @news = @news.where(category: params[:type]) if params[:type].present?
+    @title = '最新消息'
+    @news = New.select('created_at, title, id').order('id desc')
+    if params[:type].present?
+      category = NewsCategory.find(params[:type])
+      @news = category.hot_news
+      @title = category.name
+    end
     @news = @news.page(params[:page])
-    @title = params[:type] || '最新消息'
   end
 
   def show
@@ -14,6 +18,6 @@ class NewsController < ApplicationController
   private
 
   def init_category
-    @categories = New.group(:category).count
+    @categories = New.group(:news_category).count
   end
 end

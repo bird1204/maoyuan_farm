@@ -3,6 +3,10 @@ module ProductsHelper
     render partial: 'shared/breadcomb', locals: {path: @path} if index == 0
   end
 
+  def user_nav_bar_in_product(index)
+    render partial: 'shared/shop_nav_bar', locals: {cart: current_user.cart} unless current_page?('entrys') if index == 0
+  end
+
   def header_message(data, class_name, style, index)
     if index == 0
       content_tag(:span, message(data), class: class_name.to_sym, style: style.to_sym)

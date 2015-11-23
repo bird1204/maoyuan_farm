@@ -13,7 +13,7 @@ module MaoyuanFarm
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Taipei'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
@@ -21,5 +21,8 @@ module MaoyuanFarm
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.service_mails = %w(g8071107@gmail.com bird1204@gmail.com keeliker@gmail.com n0975806638@gmail.com)
+    
+    config.i18n.available_locales = ["zh-TW", :en]
   end
 end

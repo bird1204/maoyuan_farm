@@ -26,4 +26,14 @@ zh-TW:
     direct_sellings:
       head: 農友直銷
       show: 農友資訊
+    tracking_lists:
+      head: 線上購物
+      index: 追蹤清單
+    carts:
+      head: 線上購物
+      index: 購物車
+    orders: 
+      head: 線上購物
+      new: 填寫付款方式及寄送資料
+      show: 訂單建立成功
   admin:

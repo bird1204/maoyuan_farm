@@ -1,0 +1,360 @@
+<!DOCTYPE HTML>
+<!--
+	Solarize by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>茂發花果園</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+
+		<style>
+		/* 表格的設定 */
+			.cart-table {
+			  margin: 0em 0 1em 0em;
+			  min-width: 300px;
+			}
+			.cart-table tr {
+			  border-bottom: 1px solid #ddd;
+			}
+			.cart-table th {
+			  display: none;
+			}
+			.cart-table td {
+			  display: block;
+			  vertical-align: middle;
+			}
+
+			.cart-table td img{
+			  border-radius: 8px;
+			  max-width: 100px;
+			}
+
+			.cart-table td:first-child {
+			  padding-top: .5em;
+			}
+			.cart-table td:last-child {
+			  padding-bottom: .5em;
+			}
+			.cart-table td:before {
+			  content: attr(data-th);
+			  font-weight: bold;
+			  width: 6.5em;
+			  display: inline-block;
+			}
+			@media (min-width: 480px) {
+			  .cart-table td:before {
+			    display: none;
+			  }
+			}
+
+			@media (max-width: 480px) {
+				.cart-table td img{
+				  max-width: 100%;
+				}
+				.cart-table tr td:first-child{
+				  overflow: hidden;
+				  border-radius: 8px;
+				  margin: 0em 1em 0.5em 1em;
+				  padding-top: 0;
+				}
+			}
+
+			.cart-table th, .cart-table td {
+			  text-align: left;
+			}
+			@media (min-width: 480px) {
+			  .cart-table th, .cart-table td {
+			    display: table-cell;
+			    padding: .25em .5em;
+			  }
+			  .cart-table th:first-child, .cart-table td:first-child {
+			    padding-left: 0;
+			  }
+			  .cart-table th:last-child, .cart-table td:last-child {
+			    padding-right: 0;
+			  }
+			}
+
+
+			.cart-table {
+			  background: #eee;
+			  color: #333;
+			  border-radius: .4em;
+			  overflow: hidden;
+			}
+			.cart-table tr {
+			  border-color: #d2d2d2;
+			}
+			.cart-table th, .cart-table td {
+			  margin: .5em 1em;
+			}
+			@media (min-width: 480px) {
+			  .cart-table th, .cart-table td {
+			    padding: 1em !important;
+			  }
+			}
+			.cart-table th, .cart-table td:before {
+			  color: #2F6B3A;
+			}
+
+			/* 提示的設定 */
+
+			.alert {
+			  position: relative;
+			  top: 10;
+			  left: 0;
+			  width: auto;
+			  height: auto;
+			  padding: 10px;
+			  margin: 10px;
+			  line-height: 1.8;
+			  border-radius: 5px;
+			  font-family: sans-serif;
+			  font-weight: 400;
+			}
+
+			.alert-success {
+			  background-color: #EFE;
+			  border: 1px solid #DED;
+			  color: #9A9;
+			}
+
+			/* 結帳按鈕區 */
+			.bill{
+				float: right;
+				position: relative;
+			}
+
+			.bill button{
+				float: right;
+			}
+
+			/* 進度提示 */
+			.progress {
+			  list-style: none;
+			  margin: 0;
+			  padding: 0;
+			  display: table;
+			  table-layout: fixed;
+			  width: 100%;
+			  color: #849397;
+			}
+			.progress > li {
+			  position: relative;
+			  display: table-cell;
+			  text-align: center;
+			  font-size: 0.8em;
+			}
+			.progress > li:before {
+			  content: attr(data-step);
+			  display: block;
+			  margin: 0 auto;
+			  background: #DFE3E4;
+			  width: 3em;
+			  height: 3em;
+			  text-align: center;
+			  margin-bottom: 0.25em;
+			  line-height: 3em;
+			  border-radius: 100%;
+			  position: relative;
+			  z-index: 1000;
+			}
+			.progress > li:after {
+			  content: '';
+			  position: absolute;
+			  display: block;
+			  background: #DFE3E4;
+			  width: 100%;
+			  height: 0.5em;
+			  top: 1.25em;
+			  left: 50%;
+			  margin-left: 1.5em\9;
+			  z-index: -1;
+			}
+			.progress > li:last-child:after {
+			  display: none;
+			}
+			.progress > li.is-complete {
+			  color: #2ECC71;
+			}
+			.progress > li.is-complete:before, .progress > li.is-complete:after {
+			  color: #FFF;
+			  background: #2ECC71;
+			}
+			.progress > li.is-active {
+			  color: #3498DB;
+			}
+			.progress > li.is-active:before {
+			  color: #FFF;
+			  background: #3498DB;
+			}
+
+		/*以上與cart共用*/
+		/*刪除＆回最上方*/
+		.del{
+			text-align: left;
+		}
+
+		.top{
+			text-align: right;
+		}
+
+		@media (max-width: 480px) {
+			.top{
+				text-align: left;
+			}
+     	}
+
+
+
+		</style>
+	</head>
+	<body>
+
+		<!-- Header Wrapper -->
+			<div class="wrapper style1">
+			
+			<!-- Header -->
+				<div id="header">
+					<div class="container">
+							
+						<!-- Logo -->
+							<h1><a href="index.html" id="logo">茂發花果園</a></h1>
+						
+						<!-- Nav -->
+							<nav id="nav">
+								<ul>
+									<li class="active"><a href="index.html">首頁</a></li>
+									<li><a href="shop.html">線上購物</a></li>
+									<li><a href="about.html">關於茂發</a></li>
+									<li><a href="service.html">線上服務</a></li>
+									<li><a href="catalog.html">線上型錄</a></li>
+									<li><a href="news.html">最新消息</a></li>
+									<li><a href="contact.html">聯絡我們</a></li>
+									<li><a href="step.html">購物流程</a></li>
+									<li><a href="direct_selling.html">農友直銷</a></li>
+								</ul>
+							</nav>
+	
+					</div>
+				</div>
+			</div>
+		
+		<!-- Main -->
+			<div id="main" class="wrapper style4">
+
+				<!-- Content -->
+				<div id="content" class="container">
+					<section>
+						<div class="12u breadcomb">・首頁 > 線上購物 > 追蹤清單</div>
+						<header class="major">
+							<h2>追蹤清單</h2>
+							<span class="byline">每頁Ｎ筆，共Ｎ項商品</span>
+						</header>
+						<table class="cart-table">
+						  <tr>
+						  	<th><input type="checkbox" name="item_all" value="item_all"></th>
+						  	<th>圖片</th>
+						    <th>商品</th>
+						    <th>庫存</th>
+						    <th>單價</th>
+						    <th>加入日期</th>
+						  </tr>
+						  <tr>
+						  	<td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
+						  	<td><img src="images/1700866_L.jpg"></td>
+						    <td data-th="商品">熱銷商品標題1</td>
+						    <td data-th="庫存">尚有庫存</td>
+						    <td data-th="單價">$ 123</td>
+						    <td data-th="加入日期">2015/06/25</td>
+						  </tr>
+						  <tr>
+						  	<td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
+						  	<td><img src="images/1700866_L.jpg"></td>
+						    <td data-th="商品">熱銷商品標題1</td>
+						    <td data-th="庫存">尚有庫存</td>
+						    <td data-th="單價">$ 123</td>
+						    <td data-th="加入日期">2015/06/25</td>
+						  </tr>
+						  <tr>
+						  	<td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
+						  	<td><img src="images/1700866_L.jpg"></td>
+						    <td data-th="商品">熱銷商品標題1</td>
+						    <td data-th="庫存">尚有庫存</td>
+						    <td data-th="單價">$ 123</td>
+						    <td data-th="加入日期">2015/06/25</td>
+						  </tr>
+						  <tr>
+						  	<td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
+						  	<td><img src="images/1700866_L.jpg"></td>
+						    <td data-th="商品">熱銷商品標題1</td>
+						    <td data-th="庫存">尚有庫存</td>
+						    <td data-th="單價">$ 123</td>
+						    <td data-th="加入日期">2015/06/25</td>
+						  </tr>
+						  <tr>
+						  	<td data-th="選取"><input type="checkbox" name="item_01" value="item_01"></td>
+						  	<td><img src="images/1700866_L.jpg"></td>
+						    <td data-th="商品">熱銷商品標題1</td>
+						    <td data-th="庫存">尚有庫存</td>
+						    <td data-th="單價">$ 123</td>
+						    <td data-th="加入日期">2015/06/25</td>
+						  </tr>
+						</table>
+
+				<div class="row">
+					<div class="6u del">
+					刪除
+					</div>
+					<div class="6u top">
+					TOP
+					</div>
+				</div>
+
+
+			<!--頁碼-->
+
+				<div class="pagination" style="margin-top:50px;">
+					<a href="#" class="page gradient">first</a><a href=
+					"#" class="page gradient">2</a><a href="#" class=
+					"page gradient">3</a><span class=
+					"page active">4</span><a href="#" class=
+					"page gradient">5</a><a href="#" class=
+					"page gradient">6</a><a href="#" class=
+					"page gradient">last</a>
+				</div>
+
+					</section>
+				</div>
+			</div>
+		
+
+
+	<!-- Footer -->
+		<div id="footer">
+
+			
+			<!-- Copyright -->
+				<div id="copyright">
+					©茂發花果園｜屏東縣九如鄉九如路三段（趙壽山宴席廳旁）｜傳真：08-7752368<br>
+					電話：0937-224211、0975-806638
+				</div>			
+		</div>
+
+	</body>
+</html>

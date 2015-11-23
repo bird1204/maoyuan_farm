@@ -1,0 +1,170 @@
+// Place all the styles related to the orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+     input[type="text"]{
+      border:none;
+      background-color: #f9f9f9;
+        border-bottom: 1px solid #D1E0DB;
+     }
+
+
+     /* 進度提示 */
+      .progress {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        color: #849397;
+      }
+      .progress > li {
+        position: relative;
+        display: table-cell;
+        text-align: center;
+        font-size: 0.8em;
+      }
+      .progress > li:before {
+        content: attr(data-step);
+        display: block;
+        margin: 0 auto;
+        background: #DFE3E4;
+        width: 3em;
+        height: 3em;
+        text-align: center;
+        margin-bottom: 0.25em;
+        line-height: 3em;
+        border-radius: 100%;
+        position: relative;
+        z-index: 1000;
+      }
+      .progress > li:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: #DFE3E4;
+        width: 100%;
+        height: 0.5em;
+        top: 1.25em;
+        left: 50%;
+        margin-left: 1.5em\9;
+        z-index: -1;
+      }
+      .progress > li:last-child:after {
+        display: none;
+      }
+      .progress > li.is-complete {
+        color: #2ECC71;
+      }
+      .progress > li.is-complete:before, .progress > li.is-complete:after {
+        color: #FFF;
+        background: #2ECC71;
+      }
+      .progress > li.is-active {
+        color: #3498DB;
+      }
+      .progress > li.is-active:before {
+        color: #FFF;
+        background: #3498DB;
+      }
+
+            #jumboton{
+        background-color: rgba(255,255,255,1);
+          top: 50px;
+          text-align: left;
+          font-size: 20px;
+          box-shadow: 1px 1px 5px #ccc;
+          border-radius: 10px;
+          font-size: 13px;
+          line-height: 15px;
+          padding: 20px;
+      }
+
+    /* 表格的設定-與cart.html */
+      .cart-table {
+        margin: 0em 0 1em 0em;
+        /* min-width: 300px; */
+      }
+      .cart-table tr {
+        border-bottom: 1px solid #ddd;
+      }
+      .cart-table th {
+        display: none;
+      }
+      .cart-table td {
+        display: block;
+        vertical-align: middle;
+      }
+
+      .cart-table td img{
+        border-radius: 8px;
+        max-width: 100px;
+      }
+
+      .cart-table td:first-child {
+        padding-top: .5em;
+      }
+      .cart-table td:last-child {
+        padding-bottom: .5em;
+      }
+      .cart-table td:before {
+        content: attr(data-th);
+        font-weight: bold;
+        width: 6.5em;
+        display: inline-block;
+      }
+      @media (min-width: 480px) {
+        .cart-table td:before {
+          display: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cart-table td img{
+          max-width: 100%;
+        }
+        .cart-table tr td:first-child{
+          overflow: hidden;
+          border-radius: 8px;
+          margin: 1em 1em 0.5em 1em;
+          padding-top: 0;
+        }
+      }
+
+      .cart-table th, .cart-table td {
+        text-align: left;
+      }
+      @media (min-width: 480px) {
+        .cart-table th, .cart-table td {
+          display: table-cell;
+          padding: .25em .5em;
+        }
+        .cart-table th:first-child, .cart-table td:first-child {
+          padding-left: 0;
+        }
+        .cart-table th:last-child, .cart-table td:last-child {
+          padding-right: 0;
+        }
+      }
+
+
+      .cart-table {
+        background: #eee;
+        color: #333;
+        border-radius: .4em;
+        overflow: hidden;
+      }
+      .cart-table tr {
+        border-color: #d2d2d2;
+      }
+      .cart-table th, .cart-table td {
+        margin: .5em 1em;
+      }
+      @media (min-width: 480px) {
+        .cart-table th, .cart-table td {
+          padding: 1em !important;
+        }
+      }
+      .cart-table th, .cart-table td:before {
+        color: #2F6B3A;
+      }
