@@ -86,7 +86,7 @@
 									<%@products.each do |product|%>
 									<div class="3u">
 										<section>
-											<%=image_tag '1905940_L.jpg', class: "feature image", style: "max-width:100%;"%>
+											<%=image_tag product.icon_url, class: "feature image", style: "max-width:100%;" %>
 											<header>
 												<%=product.name%>
 											</header>
